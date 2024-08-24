@@ -12,9 +12,7 @@ chrono = { version = "*" }
 serde = { version = "*", features = ["derive"] }
 serde_json = { version = "*" }
 #GUI
-eframe = { version = "*" }
-egui = { version = "*" }
-egui_extras = { version = "*", features = ["all_loaders"] }
+gpui = { git = "https://github.com/zed-industries/zed" }
 #スクレイピング
 reqwest = { version = "*" }
 select = { version = "*" }
@@ -25,7 +23,6 @@ linfa = { version = "*" }
 ndarray = { version = "*" }
 #グラフ
 charming = { version = "*" }
-plotters = { version = "*" }
 #形態素解析
 lindera = { version = "*", features = ["filter", "unidic"] }
 

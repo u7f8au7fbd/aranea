@@ -1,16 +1,26 @@
 {
-    // IntelliSense を使用して利用可能な属性を学べます。
-    // 既存の属性の説明をホバーして表示します。
-    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/<executable file>",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=${workspaceFolderBasename}",
+                    "--package=${workspaceFolderBasename}"
+                ],
+                "filter": {
+                    "kind": "bin",
+                    "name": "aranea"
+                }
+            },
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PATH": "${env:USERPROFILE}/.rustup/toolchains/stable-x86_64-pc-windows-msvc/bin;${workspaceFolder}/target/debug/deps;${env:PATH}"
+            },
+            "name": "Debug",
+            "request": "launch",
+            "type": "lldb"
         }
-    ]
+    ],
+    "version": "0.2.0"
 }
