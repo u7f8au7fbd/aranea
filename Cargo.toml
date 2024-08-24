@@ -12,9 +12,9 @@ chrono = { version = "*" }
 serde = { version = "*", features = ["derive"] }
 serde_json = { version = "*" }
 #GUI
-egui = { version = "*" }
 eframe = { version = "*" }
-egui_extras = { version = "*" }
+egui = { version = "*" }
+egui_extras = { version = "*", features = ["all_loaders"] }
 #スクレイピング
 reqwest = { version = "*" }
 select = { version = "*" }
