@@ -1,0 +1,41 @@
+[package]
+name = "aranea"
+version = "0.0.0"
+authors = ["u7f8au7fbd <u7f8au7fbd@outlook.com>"]
+edition = "2021"
+
+[dependencies]
+#基本
+tokio = { version = "*", features = ["full"] }
+rand = { version = "*" }
+chrono = { version = "*" }
+serde = { version = "*", features = ["derive"] }
+serde_json = { version = "*" }
+#GUI
+egui = { version = "*" }
+eframe = { version = "*" }
+egui_extras = { version = "*" }
+#スクレイピング
+reqwest = { version = "*" }
+select = { version = "*" }
+scraper = { version = "*" }
+spider = { version = "*" }
+#機械学習
+linfa = { version = "*" }
+ndarray = { version = "*" }
+#グラフ
+charming = { version = "*" }
+plotters = { version = "*" }
+#形態素解析
+lindera = { version = "*", features = ["filter", "unidic"] }
+
+
+[profile.dev]
+opt-level = 1
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+[profile.release.package."*"]
+opt-level = 3
