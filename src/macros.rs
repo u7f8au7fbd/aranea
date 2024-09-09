@@ -211,3 +211,81 @@ macro_rules! white_b {
         format!("\x1b[47m{}\x1b[0m", $s)
     };
 }
+
+#[macro_export]
+macro_rules! clear {
+    ($s:expr) => {
+        format!("\x1b[0m", $s)
+    };
+}
+
+#[macro_export]
+macro_rules! mold_html {
+    ($input:expr) => {
+        {
+            const CYAN: &str = "\x1b[36m";
+            const RESET: &str = "\x1b[0m";
+            const GREEN: &str = "\x1b[32m";
+            const BLUE: &str = "\x1b[34m";
+            const YELLOW: &str = "\x1b[33m";
+            // 効率を上げるため、初期容量を入力の長さに基づいて確保
+            let mut result = String::with_capacity($input.len() * 2);
+            let mut in_brackets = false; // '<'と'>'の間かどうか
+            let mut in_quotes = false; // '"'の中かどうか
+            let mut first_word = true; // 最初の単語かどうか
+
+            let iter = $input.chars().peekable(); // peekableにして次の文字を確認できるようにする
+
+            for c in iter {
+                match c {
+                    '<' => {
+                        result.push_str(CYAN); // '<'をシアンで表示
+                        result.push(c);
+                        in_brackets = true; // ブラケット内に入ったフラグを立てる
+                        first_word = true; // 最初の単語のフラグをリセット
+                    }
+                    '>' => {
+                        if in_brackets {
+                            result.push_str(RESET); // ブラケット内の文字の色をリセット
+                        }
+                        result.push_str(CYAN); // '>'もシアンで表示
+                        result.push(c);
+                        result.push_str(RESET); // 色をリセット
+                        in_brackets = false; // ブラケット外に出たフラグをリセット
+                    }
+                    '"' => {
+                        if in_quotes {
+                            result.push(c); // クオートの終わり
+                            result.push_str(RESET); // クオートの終了時にリセット
+                        } else {
+                            result.push_str(GREEN); // クオートの開始時に緑色にする
+                            result.push(c);
+                        }
+                        in_quotes = !in_quotes; // クオート状態をトグル
+                    }
+                    ' ' => {
+                        if in_brackets && first_word {
+                            result.push_str(RESET); // 最初の単語全体が終わったらリセット
+                            first_word = false; // 最初の単語フラグをリセット
+                        }
+                        result.push(c); // スペースをそのまま追加
+                    }
+                    _ => {
+                        if in_brackets && !in_quotes {
+                            if first_word {
+                                result.push_str(BLUE); // 最初の単語は青色
+                            } else {
+                                result.push_str(YELLOW); // それ以降は黄色
+                            }
+                        } else if in_quotes {
+                            result.push_str(GREEN); // クオート内は常に緑
+                        }
+                        result.push(c); // 通常の文字を追加
+                    }
+                }
+            }
+
+            result // 結果を返す
+        }
+    };
+}
