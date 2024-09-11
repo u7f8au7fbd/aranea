@@ -12,15 +12,37 @@ chrono = { version = "*" }
 serde = { version = "*", features = ["derive"] }
 serde_json = { version = "*" }
 #GUI
-dioxus = { version = "*", features = ["desktop"] }
+eframe = { version = "*" }
+egui = { version = "*" }
+egui_extras = { version = "*" }
+catppuccin-egui = { version = "*", default-features = false, features = [
+    "egui28",
+] }
 #スクレイピング
 reqwest = { version = "*" }
 select = { version = "*" }
 scraper = { version = "*" }
 spider = { version = "*" }
 #機械学習
+ndarray = { version = "0.15.6" }
 linfa = { version = "*" }
-ndarray = { version = "*" }
+linfa-bayes = { version = "*" }
+linfa-clustering = { version = "*" }
+linfa-datasets = { version = "*" }
+linfa-elasticnet = { version = "*" }
+linfa-ftrl = { version = "*" }
+linfa-hierarchical = { version = "*" }
+linfa-ica = { version = "*" }
+linfa-kernel = { version = "*" }
+linfa-linear = { version = "*" }
+linfa-logistic = { version = "*" }
+linfa-nn = { version = "*" }
+linfa-pls = { version = "*" }
+linfa-preprocessing = { version = "*" }
+linfa-reduction = { version = "*" }
+linfa-svm = { version = "*" }
+linfa-trees = { version = "*" }
+linfa-tsne = { version = "*" }
 #グラフ
 charming = { version = "*" }
 plotters = { version = "*" }
