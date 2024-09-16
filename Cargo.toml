@@ -15,7 +15,6 @@ bytemuck = { version = "*", features = ["derive"] }
 env_logger = "*"
 log = "*"
 puffin = { version = "*", features = [] }
-winit = { version = "*" }
 #EGUI
 eframe = { version = "*", features = ["default", "persistence", "wgpu"] }
 egui = { version = "*", features = [
@@ -97,7 +96,7 @@ charming = { version = "*", features = [] }
 plotters = { version = "*", features = [] }
 #形態素解析q
 lindera = { version = "*", features = ["filter", "unidic"] }
-
+#テストGUI
 
 [profile.dev]
 opt-level = 1

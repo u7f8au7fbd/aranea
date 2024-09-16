@@ -16,85 +16,61 @@ fn main() {
 #[derive(Default)]
 struct MyApp {
     selected_area: Option<usize>, // 選択されたエリアを追跡
-    area_frames: Vec<Frame>,      // 各エリアのフレームを静的に保持
-}
-
-impl MyApp {
-    // エリアの初期化を行う
-    fn init_area_frames(&mut self, ctx: &egui::Context) {
-        if self.area_frames.is_empty() {
-            // 黒色の枠線 (初期状態)
-            let default_frame =
-                Frame::canvas(&ctx.style()).stroke(Stroke::new(1.0, Color32::BLACK));
-            self.area_frames.push(default_frame); // area_1用
-            self.area_frames.push(default_frame); // area_2用
-        }
-    }
-
-    // 選択状態に応じてフレームを更新する
-    fn update_frame_for_selected_area(&mut self) {
-        for (i, frame) in self.area_frames.iter_mut().enumerate() {
-            if Some(i + 1) == self.selected_area {
-                *frame =
-                    Frame::canvas(&egui::Style::default()).stroke(Stroke::new(1.0, Color32::GREEN));
-            } else {
-                *frame =
-                    Frame::canvas(&egui::Style::default()).stroke(Stroke::new(1.0, Color32::BLACK));
-            }
-        }
-    }
+    click_registered: bool,       // クリックが登録されたか
 }
 
 impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        // 初期化処理：一度だけ実行される
-        self.init_area_frames(ctx);
-
-        // 選択状態に応じてフレームを更新
-        self.update_frame_for_selected_area();
-
         let screen_size = ctx.screen_rect().size();
         let half_width = screen_size.x / 2.0;
         let margin = 10.0; // 余白を設定
 
         CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Selectable Areas with Green Border");
+            ui.heading("Selectable Areas with High Responsiveness");
+
+            // フレーム定義を共通化して冗長性を排除
+            let mut draw_area = |ui: &mut egui::Ui, area_num: usize, label: &str, pos: Pos2| {
+                let is_selected = self.selected_area == Some(area_num);
+                let frame_color = if is_selected { Color32::GREEN } else { Color32::BLACK };
+                let frame = Frame::canvas(ui.style()).stroke(Stroke::new(2.0, frame_color));
+
+                Area::new(format!("Area {}", area_num).into())
+                    .fixed_pos(pos)
+                    .show(ctx, |ui| {
+                        frame.show(ui, |ui| {
+                            ui.set_min_size(Vec2::new(
+                                half_width - margin * 1.5,
+                                screen_size.y - margin * 1.5,
+                            ));
+                            let response = ui.interact(
+                                ui.min_rect(),
+                                ui.id().with(format!("area_{}", area_num)),
+                                Sense::click(),
+                            );
+
+                            // クリックイベントを即時反映させる
+                            if response.clicked() {
+                                self.selected_area = Some(area_num);
+                                self.click_registered = true;
+                                ctx.request_repaint(); // 即時再描画を要求
+                            }
+
+                            ui.label(label);
+                        });
+                    });
+            };
 
             // 左上の領域
-            Area::new("Area 1".into())
-                .fixed_pos(Pos2::new(margin, margin))
-                .show(ctx, |ui| {
-                    self.area_frames[0].show(ui, |ui| {
-                        ui.set_min_size(Vec2::new(
-                            half_width - margin * 1.5,
-                            screen_size.y - margin * 1.5,
-                        ));
-                        let response =
-                            ui.interact(ui.max_rect(), ui.id().with("area_1"), Sense::click());
-                        if response.clicked() {
-                            self.selected_area = Some(1); // エリア1がクリックされたら選択状態に
-                        }
-                        ui.label("Left");
-                    });
-                });
+            draw_area(ui, 1, "Left", Pos2::new(margin, margin));
 
             // 右上の領域
-            Area::new("Area 2".into())
-                .fixed_pos(Pos2::new(half_width + margin / 2.0, margin))
-                .show(ctx, |ui| {
-                    self.area_frames[1].show(ui, |ui| {
-                        ui.set_min_size(Vec2::new(
-                            half_width - margin * 1.5,
-                            screen_size.y - margin * 1.5,
-                        ));
-                        let response =
-                            ui.interact(ui.max_rect(), ui.id().with("area_2"), Sense::click());
-                        if response.clicked() {
-                            self.selected_area = Some(2); // エリア2がクリックされたら選択状態に
-                        }
-                        ui.label("Right");
-                    });
-                });
+            draw_area(ui, 2, "Right", Pos2::new(half_width + margin / 2.0, margin));
         });
+
+        // クリックが登録された場合に即座に再描画
+        if self.click_registered {
+            self.click_registered = false;
+            ctx.request_repaint(); // もう一度再描画を要求してクリックを素早く反映
+        }
     }
 }

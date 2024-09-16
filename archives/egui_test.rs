@@ -9,7 +9,7 @@ fn main() {
     let _ = eframe::run_native(
         "Dynamic Area Split with Gradient Border and Remove Feature",
         options,
-        Box::new(|_cc| Box::new(MyApp::default())),
+        Box::new(|_cc| Ok(Box::new(MyApp::default()))),
     );
 }
 
@@ -89,7 +89,7 @@ impl MyApp {
     // フレーム色とクリックの処理: 動的に処理される部分のみ
     fn handle_dynamic_ui(&mut self, ctx: &Context) {
         let screen_size = ctx.screen_rect().size();
-        let margin = 10.0; // 各エリア間のマージン
+        let margin = 20.0; // 各エリア間のマージン
 
         for area in &self.areas {
             let frame = Frame::default()
