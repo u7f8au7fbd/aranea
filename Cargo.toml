@@ -6,97 +6,26 @@ edition = "2021"
 
 [dependencies]
 #基本
-tokio = { version = "*", features = ["full"] }
-rand = { version = "*", features = [] }
-chrono = { version = "*", features = [] }
-serde = { version = "*", features = ["derive"] }
-serde_json = { version = "*", features = [] }
-bytemuck = { version = "*", features = ["derive"] }
-env_logger = "*"
-log = "*"
-puffin = { version = "*", features = [] }
-#EGUI
-eframe = { version = "*", features = ["default", "persistence", "wgpu"] }
-egui = { version = "*", features = [
-    "default",
-    "accesskit",
-    "bytemuck",
-    "callstack",
-    "cint",
-    "color-hex",
-    "deadlock_detection",
-    "default_fonts",
-    "log",
-    "persistence",
-    "puffin",
-    "serde",
-
-] }
-egui_extras = { version = "*", features = [
-    "default",
-    "all_loaders",
-    "datepicker",
-    "puffin",
-    "serde",
-    "syntect",
-] }
-egui-winit = { version = "*", features = [
-    "default",
-    "accesskit",
-    "bytemuck",
-    "clipboard",
-    "links",
-    "puffin",
-    "serde",
-] }
-egui_glow = { version = "*", features = ["clipboard", "links", "puffin"] }
-egui_plot = { version = "*", features = ["serde"] }
-emath = { version = "*", features = [] }
-epaint = { version = "*", features = [
-    "default",
-    "bytemuck",
-    "cint",
-    "color-hex",
-    "deadlock_detection",
-    "default_fonts",
-    "log",
-    "puffin",
-    "serde",
-] }
-catppuccin-egui = { version = "*", default-features = false, features = [
-    "egui28",
-] }
+tokio = { version = "1.40.x", features = ["full"] }
+rand = { version = "0.8.x", features = [] }
+chrono = { version = "0.4.x", features = [] }
+serde = { version = "1.0.x", features = ["derive"] }
+serde_json = { version = "1.0.x", features = [] }
+#TUI
+ratatui = { version = "0.28.x" }
+crossterm = { version = "0.28.x" }
 #スクレイピング
-reqwest = { version = "*", features = [] }
-select = { version = "*", features = [] }
-scraper = { version = "*", features = [] }
-spider = { version = "*", features = [] }
+reqwest = { version = "0.12.x", features = [] }
+select = { version = "0.6.x", features = [] }
+scraper = { version = "0.20.x", features = [] }
+spider = { version = "0.6.x", features = [] }
 #機械学習
-ndarray = { version = "0.15.6", features = [] }
-linfa = { version = "*", features = [] }
-linfa-bayes = { version = "*", features = [] }
-linfa-clustering = { version = "*", features = [] }
-linfa-datasets = { version = "*", features = [] }
-linfa-elasticnet = { version = "*", features = [] }
-linfa-ftrl = { version = "*", features = [] }
-linfa-hierarchical = { version = "*", features = [] }
-linfa-ica = { version = "*", features = [] }
-linfa-kernel = { version = "*", features = [] }
-linfa-linear = { version = "*", features = [] }
-linfa-logistic = { version = "*", features = [] }
-linfa-nn = { version = "*", features = [] }
-linfa-pls = { version = "*", features = [] }
-linfa-preprocessing = { version = "*", features = [] }
-linfa-reduction = { version = "*", features = [] }
-linfa-svm = { version = "*", features = [] }
-linfa-trees = { version = "*", features = [] }
-linfa-tsne = { version = "*", features = [] }
+ndarray = { version = "0.16.x", features = [] }
 #グラフ
-charming = { version = "*", features = [] }
-plotters = { version = "*", features = [] }
-#形態素解析q
-lindera = { version = "*", features = ["filter", "unidic"] }
-#テストGUI
+charming = { version = "0.3.x", features = [] }
+plotters = { version = "0.3.x", features = [] }
+#形態素解析
+lindera = { version = "0.33.x", features = ["filter", "unidic"] }
 
 [profile.dev]
 opt-level = 1
