@@ -12,21 +12,35 @@ chrono = { version = "0.4.x", features = [] }
 serde = { version = "1.0.x", features = ["derive"] }
 serde_json = { version = "1.0.x", features = [] }
 #TUI
-ratatui = { version = "0.28.x" }
-crossterm = { version = "0.28.x" }
+ratatui = { version = "0.28.x", features = [
+    "crossterm",
+    "serde",
+    "macros",
+    "palette",
+    "all-widgets",
+] }
+crossterm = { version = "0.28.x", features = [] }
 #スクレイピング
-reqwest = { version = "0.12.x", features = [] }
+reqwest = { version = "0.12.8", features = ["json", "cookies"] }
 select = { version = "0.6.x", features = [] }
 scraper = { version = "0.20.x", features = [] }
-spider = { version = "0.6.x", features = [] }
+spider = { version = "2.6.x", features = [] }
 #機械学習
-ndarray = { version = "0.16.x", features = [] }
+nalgebra = { version = "0.33.x", features = [] }
+ndarray = { version = "0.15.x", features = [] }
+ndarray-rand = { version = "0.15.x", features = [] }
+ndarray-linalg = { version = "0.15.x", features = [] }
+linfa = { version = "0.7.x", features = [] }
+linfa-logistic = { version = "0.7.x", features = [] }
+linfa-linear = { version = "0.7.x", features = [] }
+linfa-trees = { version = "0.7.x", features = [] }
 #グラフ
 charming = { version = "0.3.x", features = [] }
 plotters = { version = "0.3.x", features = [] }
 #形態素解析
-lindera = { version = "0.33.x", features = ["filter", "unidic"] }
-
+lindera = { version = "0.33.x", features = ["unidic"] }
+#圧縮
+flate2 = { version = "1.0.x", features = [] }
 [profile.dev]
 opt-level = 1
 [profile.dev.package."*"]

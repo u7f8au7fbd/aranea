@@ -9,7 +9,6 @@ macro_rules! cmd {
             .expect("UTF-8に設定できませんでした");
     };
     (clear) => {
-        use std::process::Command;
         Command::new("cmd")
             .args(["/C", "cls"])
             .output()
