@@ -1,4 +1,3 @@
-
 fn extract_tag_content(file_path: &str, tag: &str) -> Vec<String> {
     let html_content = std::fs::read_to_string(file_path).expect("Failed to read file");
     let document = scraper::Html::parse_document(&html_content);
@@ -10,19 +9,18 @@ fn extract_tag_content(file_path: &str, tag: &str) -> Vec<String> {
         .collect()
 }
 
-fn extract_title(file_path: &str) -> Vec<String> {
+pub fn extract_title(file_path: &str) -> String {
     extract_tag_content(file_path, "title")
+        .into_iter()
+        .next()
+        .unwrap_or_default()
 }
 
-fn extract_h0(file_path: &str) -> Vec<String> {
-    extract_tag_content(file_path, "h0")
+pub fn extract_h1(file_path: &str) -> String {
+    extract_tag_content(file_path, "h1").join("")
 }
 
-fn extract_h1(file_path: &str) -> Vec<String> {
-    extract_tag_content(file_path, "h1")
-}
-
-fn extract_h2(file_path: &str) -> Vec<String> {
+pub fn extract_h2(file_path: &str) -> Vec<String> {
     extract_tag_content(file_path, "h2")
 }
 
