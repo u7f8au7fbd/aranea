@@ -1,4 +1,5 @@
 use mods::extract;
+use mods::measures_items;
 use mods::strfn;
 
 mod mods;
@@ -26,7 +27,10 @@ fn main() {
     //SSLを設定
     //文字・画像が最初に表示される時間を４秒以下に設定
     //見出しを降順に設定
-    //Titleの文字数を40文字以下に設定
+    println!(
+        "{}:Titleの文字数を40文字以下に設定",
+        measures_items::title40()
+    );
     //viewportの設定
     //Titleに第二クエリを設定
     //タップターゲットの可動域
