@@ -1,8 +1,10 @@
+use scraper::{Html, Selector};
+use std::{fs, path::Path};
+mod extract;
+mod macros;
 mod tokenaize;
-fn main() {
-    let text = "今日はいい天気ですね";
-    let tokens = tokenaize::tokenize_text(text);
-    for token in tokens {
-        println!("{}", token);
-    }
-}
+mod traits;
+
+const FILE_PATH: &str = "./db/1.html";
+
+fn main() {}

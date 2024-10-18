@@ -7,10 +7,12 @@ edition = "2021"
 [dependencies]
 #基本
 tokio = { version = "1.40.x", features = ["full"] }
+axum = { version = "0.7.x", features = [] }
 rand = { version = "0.8.x", features = [] }
 chrono = { version = "0.4.x", features = [] }
 serde = { version = "1.0.x", features = ["derive"] }
 serde_json = { version = "1.0.x", features = [] }
+regex={version = "1.11.x",features=[]}
 #TUI
 ratatui = { version = "0.28.x", features = [
     "crossterm",
@@ -24,21 +26,22 @@ crossterm = { version = "0.28.x", features = [] }
 reqwest = { version = "0.12.8", features = ["json", "cookies"] }
 select = { version = "0.6.x", features = [] }
 scraper = { version = "0.20.x", features = [] }
-spider = { version = "2.6.x", features = [] }
+spider = { version = "2.9.x", features = [] }
+url={version="2.5.x",features = []}
 #機械学習
 nalgebra = { version = "0.33.x", features = [] }
-ndarray = { version = "0.15.x", features = [] }
+ndarray = { version = "0.16.x", features = [] }
 ndarray-rand = { version = "0.15.x", features = [] }
-ndarray-linalg = { version = "0.15.x", features = [] }
+ndarray-linalg = { version = "0.16.x", features = [] }
 linfa = { version = "0.7.x", features = [] }
 linfa-logistic = { version = "0.7.x", features = [] }
 linfa-linear = { version = "0.7.x", features = [] }
 linfa-trees = { version = "0.7.x", features = [] }
 #グラフ
-charming = { version = "0.3.x", features = [] }
+charming = { version = "0.4.x", features = [] }
 plotters = { version = "0.3.x", features = [] }
 #形態素解析
-lindera = { version = "0.33.x", features = ["unidic"] }
+lindera = { version = "0.33.x", features = ["ipadic"] }
 #圧縮
 flate2 = { version = "1.0.x", features = [] }
 [profile.dev]
