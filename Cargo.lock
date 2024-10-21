@@ -1258,7 +1258,7 @@ version = "0.2.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "14dbbfd5c71d70241ecf9e6f13737f7b5ce823821063188d7e46c41d371eebd5"
 dependencies = [
- "unicode-width",
+ "unicode-width 0.1.14",
 ]
 
 [[package]]
@@ -1587,6 +1587,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "indoc"
+version = "2.0.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b248f5224d1d606005e02c97f5aa4e88eeb230488bcc03bc9ca4d7991399f2b5"
+
+[[package]]
 name = "instability"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1742,16 +1748,16 @@ dependencies = [
 
 [[package]]
 name = "lindera"
-version = "0.33.0"
+version = "0.34.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2e88fdd54e1a8d143b7135275c14dc43eafa4390b994bccc733ad44a1beec81f"
+checksum = "3d8a3402357ae620c400c9db789676724cd5a2d7ac25b1fc67902f343b41efaa"
 dependencies = [
  "anyhow",
  "bincode",
  "byteorder",
  "csv",
  "kanaria",
- "lindera-core",
+ "lindera-dictionary",
  "lindera-ipadic",
  "once_cell",
  "regex",
@@ -1766,10 +1772,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "lindera-core"
-version = "0.33.0"
+name = "lindera-dictionary"
+version = "0.34.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c1bc029ba11609f26110cafd62257ca38f45f214ee7a21683941e25522e77da"
+checksum = "7dbc99abb14e33848ea3bd4aeb542c714702b33ba9876f96a9f38af9307a0349"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1792,13 +1798,13 @@ dependencies = [
 
 [[package]]
 name = "lindera-ipadic"
-version = "0.33.0"
+version = "0.34.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "229851de8e92ca7886aee065cba6b17830d20c8fb5f145f71f3e6c74363c7724"
+checksum = "d1beecdc66d04c6ab4114bb7b4acc567f0c922c54940d209657c9161bca0d213"
 dependencies = [
  "bincode",
  "byteorder",
- "lindera-core",
+ "lindera-dictionary",
  "once_cell",
 ]
 
@@ -2754,14 +2760,15 @@ dependencies = [
 
 [[package]]
 name = "ratatui"
-version = "0.28.1"
+version = "0.29.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fdef7f9be5c0122f890d58bdf4d964349ba6a6161f705907526d891efabba57d"
+checksum = "eabd94c2f37801c20583fc49dd5cd6b0ba68c716787c2dd6ed18571e1e63117b"
 dependencies = [
  "bitflags 2.6.0",
  "cassowary",
  "compact_str",
  "crossterm",
+ "indoc",
  "instability",
  "itertools 0.13.0",
  "lru",
@@ -2769,11 +2776,10 @@ dependencies = [
  "paste",
  "serde",
  "strum",
- "strum_macros",
  "time",
  "unicode-segmentation",
  "unicode-truncate",
- "unicode-width",
+ "unicode-width 0.2.0",
 ]
 
 [[package]]
@@ -3790,7 +3796,7 @@ checksum = "b3644627a5af5fa321c95b9b235a72fd24cd29c648c2c379431e6628655627bf"
 dependencies = [
  "itertools 0.13.0",
  "unicode-segmentation",
- "unicode-width",
+ "unicode-width 0.1.14",
 ]
 
 [[package]]
@@ -3798,6 +3804,12 @@ name = "unicode-width"
 version = "0.1.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7dd6e30e90baa6f72411720665d41d89b9a3d039dc45b8faea1ddd07f617f6af"
+
+[[package]]
+name = "unicode-width"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1fc81956842c57dac11422a97c3b8195a1ff727f06e85c84ed2e8aa277c9a0fd"
 
 [[package]]
 name = "untrusted"

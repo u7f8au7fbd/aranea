@@ -12,9 +12,9 @@ rand = { version = "0.8.x", features = [] }
 chrono = { version = "0.4.x", features = [] }
 serde = { version = "1.0.x", features = ["derive"] }
 serde_json = { version = "1.0.x", features = [] }
-regex={version = "1.11.x",features=[]}
+regex = { version = "1.11.x", features = [] }
 #TUI
-ratatui = { version = "0.28.x", features = [
+ratatui = { version = "0.29.x", features = [
     "crossterm",
     "serde",
     "macros",
@@ -27,7 +27,7 @@ reqwest = { version = "0.12.8", features = ["json", "cookies"] }
 select = { version = "0.6.x", features = [] }
 scraper = { version = "0.20.x", features = [] }
 spider = { version = "2.9.x", features = [] }
-url={version="2.5.x",features = []}
+url = { version = "2.5.x", features = [] }
 #機械学習
 nalgebra = { version = "0.33.x", features = [] }
 ndarray = { version = "0.16.x", features = [] }
@@ -41,7 +41,7 @@ linfa-trees = { version = "0.7.x", features = [] }
 charming = { version = "0.4.x", features = [] }
 plotters = { version = "0.3.x", features = [] }
 #形態素解析
-lindera = { version = "0.33.x", features = ["ipadic"] }
+lindera = { version = "0.34.x", features = ["ipadic"] }
 #圧縮
 flate2 = { version = "1.0.x", features = [] }
 [profile.dev]
