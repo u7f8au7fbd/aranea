@@ -5,12 +5,10 @@ pub fn tokenize_text(text: &str) -> Vec<String> {
     }
     let tokenizer = lindera::tokenizer::Tokenizer::new(
         lindera::mode::Mode::Normal,
-        lindera::dictionary::DictionaryLoader::load_dictionary_from_config(
-            lindera::dictionary::DictionaryConfig {
-                kind: Some(lindera::dictionary::DictionaryKind::IPADIC),
-                path: None,
-            },
-        )
+        lindera::dictionary::load_dictionary_from_config(lindera::dictionary::DictionaryConfig {
+            kind: Some(lindera::dictionary::DictionaryKind::IPADIC),
+            path: None,
+        })
         .unwrap(),
         None,
     );
@@ -33,9 +31,7 @@ pub fn tokenize_word(text: &str) -> Vec<String> {
         path: None,
     };
 
-    let dictionary =
-        lindera::dictionary::DictionaryLoader::load_dictionary_from_config(dictionary_config)
-            .unwrap();
+    let dictionary = lindera::dictionary::load_dictionary_from_config(dictionary_config).unwrap();
 
     // トークナイザーを作成
     let tokenizer =
