@@ -1,4 +1,4 @@
-use crate::extract;
+use crate::mods::extract;
 use std::fs::File;
 use std::io::{self, Read};
 use regex::Regex;
