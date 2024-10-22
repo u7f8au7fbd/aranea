@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/ -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- Google Tag Manager -->
+<script type="text/javascript" async="" src="./93_files/destination"></script><script async="" src="./93_files/log.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/destination(1)"></script><script type="text/javascript" async="" src="./93_files/identify_7bf75739.js.ダウンロード"></script><script async="" src="./93_files/27029340"></script><script type="text/javascript" async="" src="./93_files/main.MWMyZjYwMzkyMA.js.ダウンロード" data-id="CJSM9TJC77UDO397G7P0"></script><script type="text/javascript" referrerpolicy="no-referrer-when-downgrade" async="" src="./93_files/gtm.js.ダウンロード"></script><script type="text/javascript" referrerpolicy="no-referrer-when-downgrade" async="" src="./93_files/gtm(1).js.ダウンロード"></script><script type="text/javascript" src="./93_files/fmitp" async=""></script><script type="text/javascript" async="" src="./93_files/ytag.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/ytag.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/events.js.ダウンロード"></script><script src="./93_files/957081595520705" async=""></script><script async="" src="./93_files/fbevents.js.ダウンロード"></script><script async="" src="./93_files/lt.js.ダウンロード"></script><script async="" src="./93_files/itm.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/uwt.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/bat.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/analytics.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/ytag.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/destination(2)"></script><script type="text/javascript" async="" src="./93_files/js"></script><script async="" src="./93_files/clarity.js.ダウンロード"></script><script async="" src="./93_files/95y70jjhrw"></script><script async="" src="./93_files/gtm(2).js.ダウンロード"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XHS9');</script>
+<!-- End Google Tag Manager -->	<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "95y70jjhrw");
+</script>	
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>【Rust】マルチサーバーの建て方の解説｜マイクラゼミ</title>
+	<meta name="description" content="Steam版(PC)「Rust」でレンタルサーバーを利用した自分専用サーバーを建てる方法について解説します。">
+	<link rel="icon" href="https://www.conoha.jp/vps/media/mine-semi/common/images/favicon.png" type="image/x-png">
+	<link rel="canonical" href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/">
+
+	<meta property="og:title" content="【Rust】マルチサーバーの建て方の解説｜マイクラゼミ">
+	<meta property="og:url" content="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="Steam版(PC)「Rust」でレンタルサーバーを利用した自分専用サーバーを建てる方法について解説します。">
+	<meta property="og:image" content="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/eyecatch.jpg">
+	<meta property="og:site_name" content="ConoHa">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ConoHaPR">
+	<meta name="twitter:description" content="Steam版(PC)「Rust」でレンタルサーバーを利用した自分専用サーバーを建てる方法について解説します。">
+	<meta name="twitter:title" content="【Rust】マルチサーバーの建て方の解説｜マイクラゼミ">
+	<meta name="twitter:image" content="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/eyecatch.jpg">
+	<meta name="twitter:url" content="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/">
+
+	<meta name="thumbnail" content="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/eyecatch.jpg">
+
+	<link rel="preload" href="https://www.conoha.jp/common_38448/fonts/NotoSansCJKjp/NotoSansCJKjp-Light--ss.woff" as="font" type="font/woff" crossorigin="">
+	<link rel="preload" href="https://www.conoha.jp/common_38448/fonts/NotoSansCJKjp/NotoSansCJKjp-Medium--ss.woff" as="font" type="font/woff" crossorigin="">
+
+	<link rel="preload" href="https://www.conoha.jp/vps/media/mine-semi/common/images/bg-pattern2.jpg" as="image">
+	<link href="./93_files/style.css" type="text/css" rel="stylesheet"><link rel="stylesheet" href="./93_files/common.css">
+<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","@id":"https://www.conoha.jp/vps/media/mine-semi/#website","name":"マイクラゼミ","url":"https://www.conoha.jp/vps/media/mine-semi/","sameAs":["https://twitter.com/ConoHaPR/","https://www.facebook.com/conoha.pr/","https://www.youtube.com/@ConohaJp"]},{"@context":"http://schema.org","@type":"WebPage","@id":"https://www.conoha.jp/vps/media/mine-semi/#webpage","isPartOf":{"@id":"https://www.conoha.jp/vps/media/mine-semi/#website"},"url":"https://www.conoha.jp/vps/media/mine-semi/","inLanguage":"ja","name":"【Rust】マルチサーバーの建て方の解説","description":"Steam版(PC)「Rust」でレンタルサーバーを利用した自分専用サーバーを建てる方法について解説します。"},{"@context":"http://schema.org","@type":"Article","isPartOf":{"@id":"https://www.conoha.jp/vps/media/mine-semi/#webpage"},"mainEntityOfPage":"https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/","headline":"【Rust】マルチサーバーの建て方の解説","description":"Steam版(PC)「Rust」でレンタルサーバーを利用した自分専用サーバーを建てる方法について解説します。","image":{"@type":"ImageObject","url":"https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/eyecatch.webp","width":1200,"height":630},"publisher":{"@type":"Organization","name":"ConoHa byGMO","logo":{"@type":"ImageObject","url":"https://www.conoha.jp/common_38448/images/logo_conoha.svg"}},"datePublished":"2022-07-19T00:00:00+09:00","dateModified":"2023-06-28T00:00:00+09:00"},{"@context":"https://schema.org/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.conoha.jp/vps/media/mine-semi/"},{"@type":"ListItem","position":2,"name":"サーバー・マルチプレイ","item":"https://www.conoha.jp/vps/media/mine-semi/category/server/"},{"@type":"ListItem","position":3,"name":"【Rust】マルチサーバーの建て方の解説","item":"https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/"}]}]</script>
+<script type="text/javascript" src="./93_files/rt.track.js.ダウンロード"></script><script type="text/javascript" async="" src="./93_files/f.txt"></script><script type="text/javascript" src="./93_files/f(1).txt"></script><script src="./93_files/27029340.js.ダウンロード" type="text/javascript" async="" data-ueto="ueto_89defaf17a"></script><script type="text/javascript" async="" src="./93_files/f(2).txt"></script></head>
+<body class="is-single is-preload-transition" data-gmoheader="pc">
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XHS9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->	<div class="js-detectDevice forSP"></div>
+
+	<div class="container">
+		<header class="header">
+	<div class="header_wrap">
+		<div class="inner">
+			<div class="header_inner">
+												<div class="headerLogo">
+									<a href="https://www.conoha.jp/vps/media/mine-semi/?btn_id=vps-rust-multi-server--header_vps-mine-semi" class="boxImage flash">
+						<img src="./93_files/logo-short.svg" alt="マイクラゼミ" width="206" height="44" decoding="async">
+					</a>
+								</div>
+				
+				<div class="headerNavigation">
+					<div class="boxShare">
+						<ul class="boxShare_list">
+							<li class="boxShare_item">
+								<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.conoha.jp%2Fvps%2Fmedia%2Fmine-semi%2F%3Fbanner_id%3Dc02_mine-semi&amp;text=%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%A9%E3%82%BC%E3%83%9F%E3%81%AF%E3%80%81%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%A9%E3%82%92%E6%A5%BD%E3%81%97%E3%82%80%E3%81%9F%E3%82%81%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E7%99%BA%E4%BF%A1%E3%81%99%E3%82%8B%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%81%A7%E3%81%99%E3%80%82%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%A9%E3%83%95%E3%83%88%E3%81%AE%E6%94%BB%E7%95%A5%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%84%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A7%E6%A5%BD%E3%81%97%E3%82%80%E3%82%B3%E3%83%84%E3%81%AA%E3%81%A9%E3%82%92%E7%99%BA%E4%BF%A1%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82" class="buttonShare is-twitter flash" target="_blank" rel="noreferrer noopener"><span class="icon icon-twitter"></span>X（旧Twitter）でシェア</a>
+							</li>
+							<li class="boxShare_item">
+								<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.conoha.jp%2Fvps%2Fmedia%2Fmine-semi%2F%3Fbanner_id%3Dc01_mine-semi" class="buttonShare is-facebook flash" target="_blank" rel="noreferrer noopener"><span class="icon icon-facebook"></span>Facebookでシェア</a>
+							</li>
+						</ul>
+					</div>
+					<div class="headerNavigation_menu for-tablet">
+						<button type="button" class="buttonMenu js-navigationTrigger" aria-label="メニューを開く">
+							<span class="buttonMenu_border"></span>
+							<span class="buttonMenu_border"></span>
+							<span class="buttonMenu_border"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<nav class="navigation js-navigationTarget">
+	<div class="navigation_inner">
+		<div class="navigationClose for-tablet">
+			<button type="button" class="buttonClose js-navigationClose">閉じる</button>
+		</div>
+		<div class="navigationSearch for-tablet">
+			<form action="https://www.conoha.jp/vps/media/mine-semi/search/" method="post" class="boxSearch">
+				<div class="boxSearch_input">
+					<input type="text" placeholder="記事を検索" name="search">
+				</div>
+				<div class="boxSearch_submit">
+					<button type="submit" class="flash">検索</button>
+				</div>
+			</form>
+		</div>
+
+		<ul class="navigationList">
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/server/?btn_id=vps-rust-multi-server--header_vps-server" class="navigationList_link">サーバー・マルチプレイ</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/update/?btn_id=vps-rust-multi-server--header_vps-update" class="navigationList_link">アップデート情報</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/enchant/?btn_id=vps-rust-multi-server--header_vps-enchant" class="navigationList_link">エンチャント</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/command/?btn_id=vps-rust-multi-server--header_vps-command" class="navigationList_link">コマンド</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/potion/?btn_id=vps-rust-multi-server--header_vps-potion" class="navigationList_link">ポーション</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/item/?btn_id=vps-rust-multi-server--header_vps-item" class="navigationList_link">アイテム</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/equipment/?btn_id=vps-rust-multi-server--header_vps-equipment" class="navigationList_link">装置</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/building/?btn_id=vps-rust-multi-server--header_vps-building" class="navigationList_link">建築</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/mob/?btn_id=vps-rust-multi-server--header_vps-mob" class="navigationList_link">モブ</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/survival/?btn_id=vps-rust-multi-server--header_vps-survival" class="navigationList_link">サバイバル</a>
+			</li>
+					<li class="navigationList_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/extension/?btn_id=vps-rust-multi-server--header_vps-extension" class="navigationList_link">機能拡張</a>
+			</li>
+				</ul>
+	</div>
+</nav>
+		<main class="main has-breadcrumbs">
+			<div class="breadcrumbs">
+				<div class="breadcrumbs_inner inner">
+					<ul class="breadcrumbs_list">
+						<li class="breadcrumbs_item"><a href="https://www.conoha.jp/vps/media/mine-semi/?btn_id=vps-rust-multi-server--breadcrumbs_vps-mine-semi" class="textLink has-noBorder is-home">ホーム</a></li>
+											<li class="breadcrumbs_item">
+													<span><a href="https://www.conoha.jp/vps/media/mine-semi/category/server/?btn_id=vps-rust-multi-server--breadcrumbs_vps-server" class="textLink has-noBorder">サーバー・マルチプレイ</a></span>
+												</li>
+											<li class="breadcrumbs_item">【Rust】マルチサーバーの建て方の解説</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="main_inner inner">
+				<div class="main_contents">
+					<div class="boxContents">
+						<div class="boxContentsHead">
+							<h1 class="boxContentsHeadTitle">【Rust】マルチサーバーの建て方の解説</h1>
+							<div class="boxContentsHeadMeta">
+															<p class="boxContentsHeadMeta_date is-update"><time datetime="2023-06-28" itemprop="dateModified">2023.6.28</time></p>
+														</div>
+							<div class="boxContentsHeadThumbnail">
+								<div class="boxImage"><picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/eyecatch.jpg" alt="" src="./93_files/eyecatch.jpg"></picture></div>							</div>
+						</div>
+
+						<div class="boxContentsBody">
+							<div class="js-contents">
+<section class="section">
+	<div class="boxParagraph">
+		<p>ここでは、Steam版(PC)「Rust」でレンタルサーバーを利用した自分専用サーバーを建てる方法について解説します。</p>
+
+		<ul class="listIndent textColor-important">
+			<li class="listIndent_item">※PlayStation版の Rust（Rust Console Edition）には対応しておりませんのでご注意ください。</li>
+		</ul>
+
+		<p>「サーバーを建てる」というと難しい知識が必要では？費用が高額なのでは？と思われるかもしれません。しかしレンタルサーバーを借りて、用意されているRust用のテンプレートを使えば、専門知識がなくても簡単かつリーズナブルに自分専用のマルチサーバーを建てることができます。</p>
+		<p>Rustのようなサバイバルゲームではチーム戦こそ最大の楽しみです！マルチサーバーを建てれば、自分の好きなルールで友達と遊べるようになります。素材や武器の調達を手分けしたり、交代で見張りをして襲撃に備えたり、一緒に探索に出掛けたりもできるので、1人よりも楽しくプレイできます。</p>
+		<p>レンタルサーバーなら簡単にマルチサーバーを用意できるので、難しそうだからと諦めていた方もこの機会にぜひ挑戦してみてください。</p>
+	</div>
+</section>
+
+<section class="section">
+	<div id="section-index" class="section_anchor"></div>
+	<div class="boxIndex">
+		<div class="boxIndexHead">
+			<p class="boxIndexHead_title">目次</p>
+			<button type="button" class="boxIndexHead_close js-boxIndex-trigger">
+				<span>閉じる</span>
+				<span>開く</span>
+			</button>
+		</div>
+		<div class="boxIndexBody js-boxIndex-target"><ol class="listNumber"><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section01" class="textLink">マルチサーバーとは？</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section01-01" class="textLink">自分専用マルチサーバーの良い点・悪い点</a></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02" class="textLink">ConoHa for GAME が簡単で便利</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02-01" class="textLink">レンタルサーバーなら専門知識が無くても大丈夫</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02-02" class="textLink">管理画面がわかりやすくて初心者でも安心</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02-03" class="textLink">高性能なのに低価格</a></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03" class="textLink">Rustマルチサーバーの建て方</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01" class="textLink">ConoHa アカウントの登録</a><ul class="listDisc is-third"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-01" class="textLink">メールアドレス・パスワード登録</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-02" class="textLink">イメージタイプの選択</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-03" class="textLink">料金タイプ・プラン選択</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-04" class="textLink">rootパスワードの指定</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-05" class="textLink">ネームタグの設定</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-06" class="textLink">オプションの確認</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-07" class="textLink">情報の入力</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-08" class="textLink">SMS／電話認証</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-09" class="textLink">お支払い方法</a></li></ul></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-02" class="textLink">サーバーの確認</a><ul class="listDisc is-third"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-02-01" class="textLink">IPアドレス・サーバー名の確認</a></li></ul></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04" class="textLink">サーバーにアクセスする</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04-01" class="textLink">IPアドレスでアクセスする方法</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04-02" class="textLink">サーバー名でアクセスする方法</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04-03" class="textLink">友達を招待するには</a></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section05" class="textLink">Rustマルチサーバーの建て方まとめ</a></li></ol></div>
+	</div>
+</section>
+
+<section class="section js-section" id=""><div id="section01" class="section_anchor"></div>
+	<h2 class="headingP2">マルチサーバーとは？</h2>
+
+	<div class="boxParagraph">
+		<p>マルチサーバーは「マルチプレイ用のサーバー」のことで、他のプレイヤーと一緒に同じゲーム内で遊ぶために必要になります。</p>
+		<p>Rustはローカルプレイやシングルプレイが無く、公式もしくはユーザーが建てたマルチサーバーに必ずログインして遊ぶので、常にマルチサーバーでプレイしていることになります。</p>
+	</div>
+
+	<section class="section js-section" id=""><div id="section01-01" class="section_anchor"></div>
+		<h3 class="headingP3">自分専用マルチサーバーの良い点・悪い点</h3>
+
+		<div class="boxParagraph">
+			<p>マルチサーバーを自分で建てた場合、こんな良い点と悪い点があります。</p>
+		</div>
+
+		<table class="tableM1">
+			<thead>
+				<tr>
+					<th>良い点</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<ul class="listDisc">
+							<li class="listDisc_item">自分が建てたサーバーに知り合いを呼んで遊ぶことができる<br>（ユーチューバーなら、サーバーアクセス方法を公開してリスナーと遊ぶことも可能）</li>
+							<li class="listDisc_item">サーバーを稼働させ続けている限り、ゲーム内で作成した拠点や集めたアイテム等が維持される</li>
+							<li class="listDisc_item">世界を新しく作ったり消したりすることが自由にできる</li>
+							<li class="listDisc_item">サーバーの停止や起動を自由にできる</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="tableM1 marginTop-1x">
+			<thead>
+				<tr>
+					<th>悪い点</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<ul class="listDisc">
+							<li class="listDisc_item">サーバーを維持するための費用がかかる</li>
+							<li class="listDisc_item">マルチサーバーの建て方、サーバーを管理する方法を覚える必要がある</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+<div class="boxParagraph"><p><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section-index" class="textLink has-arrowTop">目次に戻る</a></p></div></section>
+
+<section class="section js-section" id=""><div id="section02" class="section_anchor"></div>
+	<h2 class="headingP2">ConoHa for GAME が簡単で便利</h2>
+
+	<div class="boxParagraph">
+		<p>自分でマルチサーバーを建てる場合におすすめしたいのが、レンタルサーバーを提供している <strong class="textColor-brown textBold">ConoHa byGMOのマルチサーバー「ConoHa for GAME」</strong>です。ConoHa for GAMEの マルチサーバーには次の特長があります。</p>
+	</div>
+
+	<section class="section js-section" id=""><div id="section02-01" class="section_anchor"></div>
+		<h3 class="headingP3">レンタルサーバーなら専門知識が無くても大丈夫</h3>
+
+		<div class="boxParagraph">
+			<p>ConoHa for GAME では有名なゲームのテンプレートイメージが2023年6月現在15種類も用意されています。準備が簡単なので申し込んでからゲーム開始までの時間が各段に早くなります。最短で数分で専用マルチサーバーを利用できます。</p>
+			<p>「Rust」のテンプレートももちろん提供されています。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image01.jpg" alt=""></div>	</section>
+
+	<section class="section js-section" id=""><div id="section02-02" class="section_anchor"></div>
+		<h3 class="headingP3">管理画面がわかりやすくて初心者でも安心</h3>
+
+		<div class="boxParagraph">
+			<p>サーバーの状態の確認や、サーバーの停止や起動を行うための管理画面がとても分かりやすいので、初心者でも安心です。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image02.jpg" alt=""></div>	</section>
+
+	<section class="section js-section" id=""><div id="section02-03" class="section_anchor"></div>
+		<h3 class="headingP3">高性能なのに低価格</h3>
+
+		<div class="boxParagraph">
+			<p>ストレージはすべてSSDを使用しており、CPUも最新のものが使われているので、<strong class="textColor-brown textBold">処理速度が速くて快適にゲームが楽しめます</strong>。また容量ごとのプランが細かく用意されており、利用期間が1ヶ月に満たない場合は、時間単位で料金が計算されるのでとてもお得です。</p>
+			<p>また「<strong class="textColor-brown textBold">長期割引パス</strong>」というお得な割引サービスも用意されています。</p>
+			<p>1ヶ月以上利用する際にはパスを事前に購入することで、お得に低価格でマルチサーバーを利用することができます。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image03.jpg" alt=""></div>	</section>
+<div class="boxParagraph"><p><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section-index" class="textLink has-arrowTop">目次に戻る</a></p></div></section>
+
+<section class="section js-section" id=""><div id="section03" class="section_anchor"></div>
+	<h2 class="headingP2">Rustマルチサーバーの建て方</h2>
+
+	<div class="boxParagraph">
+		<p>実際にRust用のマルチサーバーを建ち上げてみましょう。</p>
+		<p>ここでは ConoHa for GAME を使ったRust用マルチサーバーの立て方を解説します。</p>
+	</div>
+
+	<section class="section js-section" id=""><div id="section03-01" class="section_anchor"></div>
+		<h3 class="headingP3">ConoHa アカウントの登録</h3>
+
+		<div class="boxParagraph">
+			<p>「<a href="https://www.conoha.jp/game/?btn_id=vps-rust-multi-server--contents_game-top" class="textLink is-external" target="_blank" rel="noreferrer noopener">ConoHa for GAME</a>」のサイトから「今すぐお申し込み」をクリックして申し込みを行います。</p>
+		</div>
+
+		<section class="section js-section" id=""><div id="section03-01-01" class="section_anchor"></div>
+			<h4 class="headingP4">メールアドレス・パスワード登録</h4>
+
+			<div class="boxParagraph">
+				<p>初めて利用する場合は、アカウントの新規登録を行います。「初めてご利用の方」の部分に、メールアドレスと利用したいパスワードを入力して「次へ」を押してください。ここで登録するパスワードは、「ConoHaアカウントのパスワード」になります。</p>
+				<p><strong class="textColor-important textBold">英語大文字・英語小文字・数字の3種を最低でも1文字</strong>ずつ使って、<strong class="textColor-important textBold">9文字以上</strong>になるようにしてください。</p>
+				<p>入力したメールアドレス宛てに「ConoHaアカウント」をお知らせするメールが届きます。メール内にConoHaアカウントが記載されています。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image04.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>すでにアカウントを持っている場合は「ConoHaアカウントをお持ちの方」からログインを行って、管理画面でサーバーの追加を行ってください。</p>
+			</div>
+		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-02" class="section_anchor"></div>
+			<h4 class="headingP4">イメージタイプの選択</h4>
+
+			<div class="boxParagraph">
+				<p>メールアドレスの登録が終わると、イメージタイプの選択画面になります。選択画面の中から<strong class="textColor-brown textBold">「Rust」</strong>を選んでください。</p>
+
+				<ul class="listIndent textColor-important">
+					<li class="listIndent_item">※ここできちんとRustを選択しておかないと、Rust向けのマルチサーバーにならないのでご注意ください。</li>
+				</ul>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image05.jpg" alt=""></div>		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-03" class="section_anchor"></div>
+			<h4 class="headingP4">料金タイプ・プラン選択</h4>
+
+			<div class="boxParagraph">
+				<p>イメージタイプを選んだら、次に料金タイプとプランを決めます。料金タイプは「長期割引パス」か「時間課金」のどちらかを選びます。</p>
+			</div>
+
+			<table class="tableM1">
+				<tbody>
+					<tr>
+						<th style="width: 25%;">時間課金</th>
+						<td style="width: 75%;">
+							<p>通常の料金になります。時間単位で課金されるため、試しにサーバーを立ててみる場合や、1ヶ月使うかどうかわからない場合などに最適です。</p>
+						</td>
+					</tr>
+					<tr>
+						<th style="width: 25%;">長期割引パス</th>
+						<td style="width: 75%;">
+							<p>1ヶ月以上マルチサーバーを利用する場合は、料金が割引になるためこちらの方がお得です。事前に支払いを行う必要があります。キャンペーン開催時は、さらに割引される可能性があります。最新の価格は <a href="https://www.conoha.jp/game/?btn_id=vps-rust-multi-server--contents_game-top" class="textLink is-external" target="_blank" rel="noreferrer noopener">ホームページの価格表</a> をご覧ください。</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="boxParagraph">
+				<p>プランは 4GB ～ 64GBから選べますが、<strong class="textColor-brown textBold">Rust の推奨プランは「8GB」以上</strong>になります。4GBのプランでも動作はしますがメモリがギリギリのため、<strong class="textColor-brown textBold">快適にゲームを楽しみたい場合は8GBプラン以上でのご利用をおすすめ</strong>します。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image06.jpg" alt=""></div>		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-04" class="section_anchor"></div>
+			<h4 class="headingP4">rootパスワードの指定</h4>
+
+			<div class="boxParagraph">
+				<p>rootパスワードを指定します。</p>
+				<p><strong class="textColor-important textBold">英語大文字・英語小文字・数字・記号の4種を最低でも1文字</strong>ずつ使って、<strong class="textColor-important textBold">9～70文字</strong>になるようにしてください。</p>
+				<p>利用可能な記号は　 \ ^ $ + - * / | ( ) [ ] { } . , ? ! _ = &amp; @ ~ % # : ; ‘ “ です。</p>
+				<p>ここで登録するパスワードは「<strong class="textColor-brown textBold">rootパスワード</strong>」と言って、<strong class="textColor-brown textBold">Rustマルチサーバーの root ユーザーのパスワード</strong>になります。コンソール画面で入力することがあるので、必ずメモをとって忘れないようにしてください。</p>
+
+				<ul class="listIndent textColor-important">
+					<li class="listIndent_item">※大文字・小文字を間違えないようにメモをとってください。</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-05" class="section_anchor"></div>
+			<h4 class="headingP4">ネームタグの設定</h4>
+
+			<div class="boxParagraph">
+				<p>ネームタグはサーバーの名前を表します。</p>
+				<p>初期値のままでも大丈夫ですが、自分で分かりやすい名前に変えてもOKです。ConoHaの管理画面でサーバーを識別するのに使います。</p>
+			</div>
+		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-06" class="section_anchor"></div>
+			<h4 class="headingP4">オプションの確認</h4>
+
+			<div class="boxParagraph">
+				<p>root パスワードとネームタグの下にある「オプションを見る」をクリックすると、オプションに関する項目が表示され、ここでオプションを指定する事ができます。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image07.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>オプションの部分では、自動バックアップや追加ストレージの設定、セキュリティグループの変更などを指定する事ができます。「自動バックアップ」と「追加ストレージ」は有料オプションになります。詳しくは <a href="https://www.conoha.jp/game/pricing/?btn_id=vps-rust-multi-server--contents_game-pricing" class="textLink is-external" target="_blank" rel="noreferrer noopener">有料オプション料金表</a> をご確認ください。</p>
+				<p>特に追加したいオプションサービスがなければ、このままで問題ありません。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image08.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>このページの入力が終わったら、右下の「次へ」を押します。</p>
+			</div>
+		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-07" class="section_anchor"></div>
+			<h4 class="headingP4">情報の入力</h4>
+
+			<div class="boxParagraph">
+				<p>次にお客様情報（ご自分の情報）を入力します。必須項目となる「種別・氏名・生年月日・住所関連・電話番号」を入力します。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image09.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>このページの入力が終わったら、右下の「次へ」を押します。</p>
+			</div>
+		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-08" class="section_anchor"></div>
+			<h4 class="headingP4">SMS／電話認証</h4>
+
+			<div class="boxParagraph">
+				<p>ここでは本人確認を行います。本人確認では「SMS認証」と「電話認証」の2種類が選べます。電話番号を入力して、好きな方の認証を選んでクリックしてください。</p>
+			</div>
+
+			<table class="tableM1">
+				<tbody>
+					<tr>
+						<th style="width: 25%;">SMS認証</th>
+						<td style="width: 75%;">
+							<p>スマホを持っていてSMS（ショートメッセージサービス）が利用できる場合は、SMS認証をご利用ください。SMSで認証コードが連絡されますので、画面に入力して認証を行います。</p>
+						</td>
+					</tr>
+					<tr>
+						<th style="width: 25%;">電話認証</th>
+						<td style="width: 75%;">
+							<p>スマホを持っていない場合は、家の電話番号等を入力して電話認証を選んでください。入力した電話番号宛てに電話がかかってきて、自動音声でアナウンスが流れます。申し込み画面に表示された認証コードを電話のダイヤルで入力して認証が行われます。</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="boxImage marginTop-3x"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image10.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>無事に認証が完了したら、支払方法の登録に進みます。</p>
+			</div>
+		</section>
+
+		<section class="section js-section" id=""><div id="section03-01-09" class="section_anchor"></div>
+			<h4 class="headingP4">お支払い方法</h4>
+
+			<div class="boxParagraph">
+				<p>支払方法は「クレジットカード」「ConoHaチャージ」「ConoHaカード」の3種類があります。</p>
+				<p>画面上部のタブに「クレジットカード／ConoHaチャージ」と「その他」があり、その他を選ぶと「ConoHaカード／デビュー割」で支払う事ができます。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image11.jpg" alt=""></div>
+			<table class="tableM1 marginTop-3x">
+				<tbody>
+					<tr>
+						<th style="width: 25%;">クレジットカード</th>
+						<td style="width: 75%;">
+							<p>ネットでの支払いの定番、クレジットカードで支払えます。各社のポイントなどが貯まることと、手間がかからないのが大きなメリットです。</p>
+						</td>
+					</tr>
+					<tr>
+						<th style="width: 25%;">ConoHaチャージ</th>
+						<td style="width: 75%;">
+							<p>事前にチャージをしておき、チャージ残高から支払われます。クレジットカード以外にAmazonPayやコンビニ決済、銀行決済など複数の決済方法が用意されているのが利点ですが、クレジットカード・AmazonPay以外のチャージ方法は入金の確認までに時間がかかる場合があります。また、残金不足の場合はサービスが停止しますので、使い過ぎ防止に利用するという使い方もあります。</p>
+						</td>
+					</tr>
+					<tr>
+						<th style="width: 25%;">ConoHaカード</th>
+						<td style="width: 75%;">
+							<p>販売されている「ConoHaカード」を購入し、記載されているクーポンコードを入力して使います。手元にカードが残るので、このようなカードを集めるのが好きな方におすすめです。（パッケージ版の他にデジタル版もあります）<a href="https://www.conoha.jp/conohacard/?btn_id=vps-rust-multi-server--contents_conohacard" class="textLink is-external" target="_blank" rel="noreferrer noopener">ConoHaカードの購入はこちら </a>から行えます。</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="boxImage marginTop-3x"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image12.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>（パッケージ版の他にデジタル版もあります）</p>
+				<p>支払方法の入力が終わったら、画面下の「お申し込み内容」をご確認ください。内容に問題がなければ「お申し込み」ボタンを押して申し込みを完了させます。</p>
+				<p>少し時間がかかりますが、申し込み時に選んだプラン等の情報を元にサーバーが作成されます。ConoHaの管理画面で作成されたサーバーを確認できます。</p>
+			</div>
+		</section>
+	</section>
+
+	<section class="section js-section" id=""><div id="section03-02" class="section_anchor"></div>
+		<h3 class="headingP3">サーバーの確認</h3>
+
+		<div class="boxParagraph">
+			<p>ConoHaの管理画面にログインして、左メニューの「サーバー」を選ぶとサーバーリストが表示されます。新しく作成されたサーバーが1つ表示されます。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image13.jpg" alt=""></div>
+		<section class="section js-section" id=""><div id="section03-02-01" class="section_anchor"></div>
+			<h4 class="headingP4">IPアドレス・サーバー名の確認</h4>
+
+			<div class="boxParagraph">
+				<p><strong class="textColor-brown textBold">サーバーにアクセス（接続）するときに必要になる「IPアドレス」や「サーバー名」</strong>を確認します。</p>
+				<p>サーバーリストにあるサーバー名（ネームタグ）をクリックしてサーバー詳細画面を表示します。その画面の上部にある「コンソール」をクリックして、コンソール画面を開きます。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image14.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>コンソール画面とは、コマンドを入力する画面のことで、ここからサーバーに直接アクセスします。</p>
+				<p>コンソール画面が開きます。ここで Enter キーを押すとログインするための IDを入力するモードになります。ここで「 root 」と入力します。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image15.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p>コンソール画面は60秒経過するとタイムアウトしてしまいます。もし時間が経ってしまった等の理由で<strong class="textColor-brown textBold">画面が反応しなくなった場合</strong>は、右上の「×」を押して一度画面を閉じ、管理画面からまたコンソールを呼びだしてやり直してみてください。</p>
+				<p>次に <strong class="textColor-brown textBold">Password（パスワード）</strong>を聞かれるので、<strong class="textColor-brown textBold">サービスの申し込み時に設定した root パスワード を入力</strong>します。</p>
+
+				<ul class="listIndent textColor-important">
+					<li class="listIndent_item">※大文字と小文字を間違えないように入力しましょう。</li>
+				</ul>
+			</div>
+
+			<dl class="boxColored boxColored-document">
+				<dt class="boxColored_head">root パスワードでログインできない場合</dt>
+				<dd class="boxColored_body">
+					<p>申し込み時の root パスワードを正確に入力してもログインできない場合は、少し時間をおいて再挑戦してみましょう。もし時間をおいても何度試してもログインできない場合は、申し込み時のパスワードが間違っている可能性があるため、サーバーを削除＆再作成でやり直してみましょう。</p>
+				</dd>
+			</dl>
+
+			<div class="boxParagraph">
+				<p>無事に root ユーザーでログインできたら、画面にたくさんの情報が表示されます。</p>
+				<p>画面上にある次のメッセージを探しましょう。</p>
+			</div>
+
+			<pre class="boxCode">Welcome to the Rust Server image !</pre>
+
+			<div class="boxParagraph">
+				<p>このメッセージの下に、<strong class="textColor-brown textBold">サーバーの IPアドレス</strong> や<strong class="textColor-brown textBold">サーバー名</strong>が表示されます。</p>
+			</div>
+
+			<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image16.jpg" alt=""></div>
+			<div class="boxParagraph">
+				<p><strong class="textColor-brown textBold">Server IP Address（サーバー IP アドレス）</strong>をメモしてください。</p>
+
+				<ul class="listIndent textColor-important">
+					<li class="listIndent_item">※IPアドレスは半角数字と「 . (ピリオド)」で表します。「 , (カンマ)」ではないのでご注意ください</li>
+					<li class="listIndent_item">※「 XXX . XX . XX . XX：XXXXX 」と表示されている “：（コロン）” の後ろの数字も必要です。必ずメモをしてください。</li>
+				</ul>
+			</div>
+
+			<div class="boxParagraph">
+				<p><strong class="textColor-brown textBold">Rust Server name（Rust サーバー名）</strong>をメモしてください。ゲームからサーバーにアクセスする時に、IPアドレスかサーバー名でアクセスが可能です。</p>
+
+				<ul class="listIndent textColor-important">
+					<li class="listIndent_item">※大文字と小文字を間違えないようにメモしましょう。” _ (アンダーバー)” も必要です。</li>
+				</ul>
+			</div>
+		</section>
+	</section>
+<div class="boxParagraph"><p><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section-index" class="textLink has-arrowTop">目次に戻る</a></p></div></section>
+
+<section class="section js-section" id=""><div id="section04" class="section_anchor"></div>
+	<h2 class="headingP2">サーバーにアクセスする</h2>
+
+	<div class="boxParagraph">
+		<p>準備ができたので、Rust から実際にサーバーにアクセスしてみましょう。</p>
+		<p>サーバーにアクセスする時は、「IPアドレス」と「サーバー名」のどちらでもサーバーに接続することができます。サーバー名は重複する可能性があるので、IPアドレスを使う方がおすすめです。</p>
+	</div>
+
+	<section class="section js-section" id=""><div id="section04-01" class="section_anchor"></div>
+		<h3 class="headingP3">IPアドレスでアクセスする方法</h3>
+
+		<div class="boxParagraph">
+			<p>Rust を起動します。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image17.jpg" alt=""></div>
+		<div class="boxParagraph">
+			<p>起動後の画面で F1 キーを押し、ゲーム内のコンソールを開きます。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image18.jpg" alt=""></div>
+		<div class="boxParagraph">
+			<p>コンソール画面で、以下のコマンドを入力して Enter キーを押し実行します。</p>
+		</div>
+
+		<pre class="boxCode">client.connect xxx.xx.xx.xx:28015</pre>
+
+		<ul class="listIndent textColor-important">
+			<li class="listIndent_item">※「xxx.xx.xx.xx:28015」の部分は、ご自分でメモをしたサーバーIPアドレスを入力してください。</li>
+			<li class="listIndent_item">※IPアドレスを入力する際は数字の間の “ ．”（ピリオド）や “： ”（コロン）も忘れずに入力しましょう。また、<strong class="textColor-brown textBold">すべて半角</strong>で入力しましょう。</li>
+		</ul>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image19.jpg" alt=""></div>
+		<div class="boxParagraph">
+			<p>「Connecting」と表示されたら接続中になり、ロードが始まります。右下にロードの進捗状況が表示されます。</p>
+			<p>初めてアクセスした場合はマップ作成処理が実行されるため、プレイできるようになるまでに時間がかかります。（プランによっては30分前後かかる場合があります）</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image20.jpg" alt=""></div>
+		<div class="boxParagraph">
+			<p>ロードが終わってゲーム画面が表示されたら、自分のサーバーへアクセス成功です。素材を集めて服や装備を調達し、準備を整えましょう。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image21.jpg" alt=""></div>	</section>
+
+	<section class="section js-section" id=""><div id="section04-02" class="section_anchor"></div>
+		<h3 class="headingP3">サーバー名でアクセスする方法</h3>
+
+		<div class="boxParagraph">
+			<p>Rustを起動したら「ゲームをプレイ」を選びます。「サーバーをけんさく」の部分にメモしておいた自分の<strong class="textColor-brown textBold"> Rust サーバー名 </strong>を入力しましょう。検索結果が右側に表示されます。</p>
+
+			<ul class="listIndent textColor-important">
+				<li class="listIndent_item">※大文字と小文字を間違えないように入力しましょう。</li>
+				<li class="listIndent_item">※半角で入力しましょう。</li>
+			</ul>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image22.jpg" alt=""></div>
+		<div class="boxParagraph">
+			<p>表示されたサーバーから自分のサーバーを選んでゲームを始めましょう。</p>
+		</div>
+
+		<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image23.jpg" alt=""></div>
+		<div class="boxParagraph">
+			<p>もし検索しても自分のサーバーが見つからない場合、<strong class="textColor-brown textBold">初回はサーバー名が表示されない場合があるため、一度 IPアドレスでサーバーにアクセス</strong>してみてください。</p>
+			<p>サーバー名の前にある ☆ マークを押してファボ（お気に入り）に登録しておけば、次回からはファボのリストからアクセスできるので便利です。</p>
+		</div>
+
+		<dl class="boxColored boxColored-document">
+			<dt class="boxColored_head">上手くいかなかった場合は？</dt>
+			<dd class="boxColored_body">
+				<p>何かうまくいかなかった、もしくは途中の手順を間違えてしまった、という場合には<strong class="textColor-brown textBold">一度作成したサーバーを削除して新たにサーバーの追加</strong>を実行してみてください。</p>
+				<p>友達にIPやサーバー名を教える前は作り直しをしても大丈夫です。料金プランが「長期割引パス」の場合、<strong class="textColor-important textBold">サーバーを作り直しても追加の費用は掛かりません。</strong>また「時間課金」の場合でも、費用が時間単位で発生するため、<strong class="textColor-important textBold">作ったサーバーを削除して作り直しても料金はほとんど変わらない</strong> のでご安心ください。</p>
+			</dd>
+		</dl>
+	</section>
+
+	<section class="section js-section" id=""><div id="section04-03" class="section_anchor"></div>
+		<h3 class="headingP3">友達を招待するには</h3>
+
+		<div class="boxParagraph">
+			<p>友達や知人に自分の建てたサーバーに遊びに来てもらう場合には、<strong class="textColor-brown textBold">「IPアドレス」</strong>か<strong class="textColor-brown textBold">「サーバー名」</strong>を教えてください。サーバーにアクセスする方法はこの記事を見てもらい、同じようにサーバーに入ってもらいましょう。</p>
+		</div>
+	</section>
+<div class="boxParagraph"><p><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section-index" class="textLink has-arrowTop">目次に戻る</a></p></div></section>
+
+<section class="section js-section" id=""><div id="section05" class="section_anchor"></div>
+	<h2 class="headingP2">Rustマルチサーバーの建て方まとめ</h2>
+
+	<div class="boxParagraph">
+		<p>ConoHa for GAMEのアカウント作成からゲームの起動までを解説しましたが、いかがでしたでしょうか。初めての人でもわかりやすいように細かい部分まで解説しましたが、慣れれば数分でサーバーの準備が完了するくらい簡単にサーバーを建てられます。</p>
+	</div>
+
+	<div class="boxImage"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-multi-server/images/image24.jpg" alt=""></div>
+	<div class="boxParagraph">
+		<p>自分専用のサーバーがあれば好きなタイミングでMAPをリセットしたり、友達と共闘したり、遊び方を自由に決められます。海外の遠いサーバーにアクセスする必要もなくなります。</p>
+		<p>サーバーの設定変更に詳しくなればマップのサイズやシード値を変更したり、マップタイプをカスタマイズしたりすることもできます。</p>
+		<p>興味のある方は以下のご利用ガイドをご覧ください。</p>
+		<p>『 <a href="https://support.conoha.jp/g/temp-rust/?btn_id=vps-rust-multi-server--contents_support-g-temp-rust" class="textLink is-external" target="_blank" rel="noreferrer noopener">ご利用ガイド　Rustゲームテンプレートを使う</a> 』</p>
+		<p>サーバーのカスタマイズは初心者の方には少し難しいのでここでは紹介しませんが、詳しくなればできることの幅が広がるので、まずは自分のマルチサーバーを建ててみて、24時間いつでも自由に他のプレイヤーと一緒に遊ぶ楽しさを味わってみてください。</p>
+	</div>
+
+	<div class="boxParagraph">
+		<p>執筆：<a href="https://gamepedia.jp/" class="textLink" target="_blank" rel="noreferrer noopener">攻略大百科</a></p>
+	</div>
+<div class="boxParagraph"><p><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section-index" class="textLink has-arrowTop">目次に戻る</a></p></div></section>
+
+							</div>						</div>					</div>
+					<div class="boxShare">
+						<ul class="boxShare_list">
+							<li class="boxShare_item">
+								<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.conoha.jp%2Fvps%2Fmedia%2Fmine-semi%2Frust-multi-server%2F%3Fbanner_id%3Dc02_mine-semi&amp;text=%E3%80%90Rust%E3%80%91%E3%83%9E%E3%83%AB%E3%83%81%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AE%E5%BB%BA%E3%81%A6%E6%96%B9%E3%81%AE%E8%A7%A3%E8%AA%AC%EF%BD%9C%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%A9%E3%82%BC%E3%83%9F" class="buttonShare is-twitterFill flash" target="_blank" rel="noreferrer noopener"><span class="icon icon-twitter"></span>X（旧Twitter）でシェア</a>
+							</li>
+							<li class="boxShare_item">
+								<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.conoha.jp%2Fvps%2Fmedia%2Fmine-semi%2Frust-multi-server%2F%3Fbanner_id%3Dc01_mine-semi&amp;text=" class="buttonShare is-facebookFill flash" target="_blank" rel="noreferrer noopener"><span class="icon icon-facebook"></span>Facebookでシェア</a>
+							</li>
+						</ul>
+					</div>
+
+									<div class="boxRelated">
+						<h2 class="headingP4">関連記事</h2>
+						<ul class="listPosts is-3columns">
+													<li class="listPosts_item">
+								<a href="https://www.conoha.jp/vps/media/mine-semi/multi-server/?btn_id=vps-rust-multi-server--related_vps-multi-server" class="boxPost is-vertical">
+									<div class="boxPostHead">
+										<div class="boxPostHead_inner">
+											<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/multi-server/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/multi-server/images/eyecatch.jpg" alt=""></picture>										</div>
+									</div>
+									<div class="boxPostBody">
+										<h3 class="boxPostBody_title"><span>【マイクラ】マルチプレイ用サーバー（マルチサーバー）の立て方を解説！</span></h3>
+										<p class="boxPostBody_date is-update">
+										2024.6.19										</p>
+									</div>
+								</a>
+							</li>
+														<li class="listPosts_item">
+								<a href="https://www.conoha.jp/vps/media/mine-semi/ark-multi-server/?btn_id=vps-rust-multi-server--related_vps-ark-multi-server" class="boxPost is-vertical">
+									<div class="boxPostHead">
+										<div class="boxPostHead_inner">
+											<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/ark-multi-server/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/ark-multi-server/images/eyecatch.jpg" alt=""></picture>										</div>
+									</div>
+									<div class="boxPostBody">
+										<h3 class="boxPostBody_title"><span>【ARK】レンタルサーバーを使ったマルチサーバーの立て方と設定方法の解説</span></h3>
+										<p class="boxPostBody_date is-update">
+										2023.5.25										</p>
+									</div>
+								</a>
+							</li>
+														<li class="listPosts_item">
+								<a href="https://www.conoha.jp/vps/media/mine-semi/be-server/?btn_id=vps-rust-multi-server--related_vps-be-server" class="boxPost is-vertical">
+									<div class="boxPostHead">
+										<div class="boxPostHead_inner">
+											<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/be-server/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/be-server/images/eyecatch.jpg" alt=""></picture>										</div>
+									</div>
+									<div class="boxPostBody">
+										<h3 class="boxPostBody_title"><span>【マイクラ】統合版でマルチサーバーの立て方は？おすすめのマルチサーバーも紹介！</span></h3>
+										<p class="boxPostBody_date is-update">
+										2023.5.30										</p>
+									</div>
+								</a>
+							</li>
+													</ul>
+					</div>
+				
+					<div class="boxSiblings">
+						<ul class="boxSiblings_list">
+							<li class="boxSiblings_item">
+															<div class="boxSiblings_label">前の記事</div>
+								<a href="https://www.conoha.jp/vps/media/mine-semi/ark-multi-server/?btn_id=vps-rust-multi-server--prev_vps-ark-multi-server" class="boxPost is-small">
+									<div class="boxPostHead">
+										<div class="boxPostHead_inner">
+											<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/ark-multi-server/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/ark-multi-server/images/eyecatch.jpg" alt=""></picture>										</div>
+									</div>
+									<div class="boxPostBody">
+										<h3 class="boxPostBody_title"><span>【ARK】レンタルサーバーを使ったマルチサーバーの立て方と設定方法の解説</span></h3>
+									</div>
+								</a>
+														</li>
+							<li class="boxSiblings_item">
+															<div class="boxSiblings_label">次の記事</div>
+								<a href="https://www.conoha.jp/vps/media/mine-semi/shield/?btn_id=vps-rust-multi-server--next_vps-shield" class="boxPost is-small">
+									<div class="boxPostHead">
+										<div class="boxPostHead_inner">
+											<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/shield/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/shield/images/eyecatch.jpg" alt=""></picture>										</div>
+									</div>
+									<div class="boxPostBody">
+										<h3 class="boxPostBody_title"><span>【マイクラ】盾の概要やエンチャント・模様の変更方法についてまとめて解説！</span></h3>
+									</div>
+								</a>
+														</li>
+						</ul>
+					</div>
+				</div>
+				<div class="main_sidebar">
+					<aside class="sidebar">
+	<div class="sidebarBlock">
+		<h2 class="headingP4">検索</h2>
+		<form action="https://www.conoha.jp/vps/media/mine-semi/search/" method="post" class="boxSearch">
+			<div class="boxSearch_input">
+				<input type="text" placeholder="記事を検索" name="search">
+			</div>
+			<div class="boxSearch_submit">
+				<button type="submit" class="flash">検索</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="sidebarBlock">
+		<h2 class="headingP4">人気記事</h2>
+		<ul class="listPosts is-popular">
+					<li class="listPosts_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/multi-server/?btn_id=vps-rust-multi-server--sidebar_vps-multi-server" class="boxPost is-small has-badge">
+					<div class="boxPostHead">
+						<div class="boxPostHead_inner">
+							<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/multi-server/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/multi-server/images/eyecatch.jpg" alt="" src="./93_files/eyecatch(1).jpg"></picture>						</div>
+					</div>
+					<div class="boxPostBody">
+						<h3 class="boxPostBody_title"><span>【マイクラ】マルチプレイ用サーバー（マルチサーバー）の立て方を解説！</span></h3>
+					</div>
+					<div class="boxPostBadge is-1">1</div>
+				</a>
+			</li>
+						<li class="listPosts_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/mod/?btn_id=vps-rust-multi-server--sidebar_vps-mod" class="boxPost is-small has-badge">
+					<div class="boxPostHead">
+						<div class="boxPostHead_inner">
+							<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/mod/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/mod/images/eyecatch.jpg" alt="" src="./93_files/eyecatch(2).jpg"></picture>						</div>
+					</div>
+					<div class="boxPostBody">
+						<h3 class="boxPostBody_title"><span>【マイクラ】MODの導入方法とおすすめMODを紹介</span></h3>
+					</div>
+					<div class="boxPostBadge is-2">2</div>
+				</a>
+			</li>
+						<li class="listPosts_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/nether/?btn_id=vps-rust-multi-server--sidebar_vps-nether" class="boxPost is-small has-badge">
+					<div class="boxPostHead">
+						<div class="boxPostHead_inner">
+							<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/nether/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/nether/images/eyecatch.jpg" alt="" src="./93_files/eyecatch(3).jpg"></picture>						</div>
+					</div>
+					<div class="boxPostBody">
+						<h3 class="boxPostBody_title"><span>【マイクラ】ネザーについて徹底解説！行き方や要塞の見つけ方もあわせて紹介</span></h3>
+					</div>
+					<div class="boxPostBadge is-3">3</div>
+				</a>
+			</li>
+						<li class="listPosts_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/house-building/?btn_id=vps-rust-multi-server--sidebar_vps-house-building" class="boxPost is-small has-badge">
+					<div class="boxPostHead">
+						<div class="boxPostHead_inner">
+							<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/house-building/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/house-building/images/eyecatch.jpg" alt=""></picture>						</div>
+					</div>
+					<div class="boxPostBody">
+						<h3 class="boxPostBody_title"><span>【マイクラ】おしゃれな家の作り方！外観から内装まで建築テクニックをまとめて紹介</span></h3>
+					</div>
+					<div class="boxPostBadge is-4">4</div>
+				</a>
+			</li>
+						<li class="listPosts_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/enchant/?btn_id=vps-rust-multi-server--sidebar_vps-enchant" class="boxPost is-small has-badge">
+					<div class="boxPostHead">
+						<div class="boxPostHead_inner">
+							<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/enchant/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/enchant/images/eyecatch.jpg" alt=""></picture>						</div>
+					</div>
+					<div class="boxPostBody">
+						<h3 class="boxPostBody_title"><span>【マイクラ】エンチャントの使い方とエンチャント一覧</span></h3>
+					</div>
+					<div class="boxPostBadge is-5">5</div>
+				</a>
+			</li>
+					</ul>
+	</div>
+
+	<div class="sidebarBlock">
+		<h2 class="headingP4 marginBottom-0">カテゴリー</h2>
+		<ul class="listCategory">
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/server/?btn_id=vps-rust-multi-server--sidebar_vps-server" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/server.png);"></div>
+					<div class="listCategoryLink_text">サーバー・マルチプレイ</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/update/?btn_id=vps-rust-multi-server--sidebar_vps-update" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/update.png);"></div>
+					<div class="listCategoryLink_text">アップデート情報</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/enchant/?btn_id=vps-rust-multi-server--sidebar_vps-enchant" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/enchant.png);"></div>
+					<div class="listCategoryLink_text">エンチャント</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/command/?btn_id=vps-rust-multi-server--sidebar_vps-command" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/command.png);"></div>
+					<div class="listCategoryLink_text">コマンド</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/potion/?btn_id=vps-rust-multi-server--sidebar_vps-potion" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/potion.png);"></div>
+					<div class="listCategoryLink_text">ポーション</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/item/?btn_id=vps-rust-multi-server--sidebar_vps-item" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/item.png);"></div>
+					<div class="listCategoryLink_text">アイテム</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/equipment/?btn_id=vps-rust-multi-server--sidebar_vps-equipment" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/equipment.png);"></div>
+					<div class="listCategoryLink_text">装置</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/building/?btn_id=vps-rust-multi-server--sidebar_vps-building" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/building.png);"></div>
+					<div class="listCategoryLink_text">建築</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/mob/?btn_id=vps-rust-multi-server--sidebar_vps-mob" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/mob.png);"></div>
+					<div class="listCategoryLink_text">モブ</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/survival/?btn_id=vps-rust-multi-server--sidebar_vps-survival" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/survival.png);"></div>
+					<div class="listCategoryLink_text">サバイバル</div>
+				</a>
+			</li>
+					<li class="listCategory_item">
+				<a href="https://www.conoha.jp/vps/media/mine-semi/category/extension/?btn_id=vps-rust-multi-server--sidebar_vps-extension" class="listCategoryLink">
+					<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/extension.png);"></div>
+					<div class="listCategoryLink_text">機能拡張</div>
+				</a>
+			</li>
+				</ul>
+	</div>
+
+	<div class="sidebarBlock is-fixed">
+		<div class="sidebarBlock_banner">
+			<a href="https://www.conoha.jp/game/?btn_id=vps-rust-multi-server--sidebar_game-top" class="boxImage is-center flash" target="_blank" rel="noreferrer noopener">
+				<img class="lazyload" data-src="/vps/media/mine-semi/common/images/banner-game.png" alt="かんたん、すぐ遊べるマルチサーバー ConoHa for GAME">			</a>
+		</div>
+
+			<div class="sidebarBlock_index js-sidebarIndex">
+			<h2 class="sidebarBlock_title">目次</h2>
+		<ol class="listNumber"><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section01" class="textLink">マルチサーバーとは？</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section01-01" class="textLink">自分専用マルチサーバーの良い点・悪い点</a></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02" class="textLink">ConoHa for GAME が簡単で便利</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02-01" class="textLink">レンタルサーバーなら専門知識が無くても大丈夫</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02-02" class="textLink">管理画面がわかりやすくて初心者でも安心</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section02-03" class="textLink">高性能なのに低価格</a></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03" class="textLink">Rustマルチサーバーの建て方</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01" class="textLink">ConoHa アカウントの登録</a><ul class="listDisc is-third"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-01" class="textLink">メールアドレス・パスワード登録</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-02" class="textLink">イメージタイプの選択</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-03" class="textLink">料金タイプ・プラン選択</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-04" class="textLink">rootパスワードの指定</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-05" class="textLink">ネームタグの設定</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-06" class="textLink">オプションの確認</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-07" class="textLink">情報の入力</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-08" class="textLink">SMS／電話認証</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-01-09" class="textLink">お支払い方法</a></li></ul></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-02" class="textLink">サーバーの確認</a><ul class="listDisc is-third"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section03-02-01" class="textLink">IPアドレス・サーバー名の確認</a></li></ul></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04" class="textLink">サーバーにアクセスする</a><ul class="listDisc is-second"><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04-01" class="textLink">IPアドレスでアクセスする方法</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04-02" class="textLink">サーバー名でアクセスする方法</a></li><li class="listDisc_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section04-03" class="textLink">友達を招待するには</a></li></ul></li><li class="listNumber_item"><a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section05" class="textLink">Rustマルチサーバーの建て方まとめ</a></li></ol></div>
+		</div>
+</aside>				</div>
+			</div>		</main>
+		<div class="buttonTotop js-totop">
+			<ul class="buttonTotop_list">
+				<li class="buttonTotop_item for-phone">
+					<a href="https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/#section-index" class="buttonTotop_button is-index">
+						<img src="./93_files/buttonTotop_text.svg" alt="目次へ">
+					</a>
+				</li>
+				<li class="buttonTotop_item">
+					<button type="button" class="buttonTotop_button is-totop js-totopTrigger">ページトップへ戻る</button>
+				</li>
+			</ul>
+		</div>
+		
+<footer class="footer">
+	<div class="footerNavigation for-desktop">
+		<div class="main_inner inner">
+			<div class="main_contents">
+				<div class="footerNavigationBox">
+					<h3 class="headingP4">マイクラゼミとは</h3>
+					<div class="footerNavigationAbout">
+						<div class="footerNavigationAbout_image">
+							<div class="boxImage">
+								<img src="./93_files/logo-short.svg" alt="マイクラゼミ" width="228" height="49" loading="lazy">
+							</div>
+						</div>
+						<div class="footerNavigationAbout_text">
+							<p>マイクラを楽しむための情報を発信するメディア。<br>攻略ポイントやみんなで楽しむコツなどをカテゴリーごとに発信しています。</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="footerNavigationBox">
+					<h3 class="headingP4 marginBottom-0">カテゴリー</h3>
+					<ul class="listCategory is-2columns">
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/server/?btn_id=vps-rust-multi-server--sidebar_vps-server" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/server.png);"></div>
+								<div class="listCategoryLink_text">サーバー・マルチプレイ</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/update/?btn_id=vps-rust-multi-server--sidebar_vps-update" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/update.png);"></div>
+								<div class="listCategoryLink_text">アップデート情報</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/enchant/?btn_id=vps-rust-multi-server--sidebar_vps-enchant" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/enchant.png);"></div>
+								<div class="listCategoryLink_text">エンチャント</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/command/?btn_id=vps-rust-multi-server--sidebar_vps-command" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/command.png);"></div>
+								<div class="listCategoryLink_text">コマンド</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/potion/?btn_id=vps-rust-multi-server--sidebar_vps-potion" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/potion.png);"></div>
+								<div class="listCategoryLink_text">ポーション</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/item/?btn_id=vps-rust-multi-server--sidebar_vps-item" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/item.png);"></div>
+								<div class="listCategoryLink_text">アイテム</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/equipment/?btn_id=vps-rust-multi-server--sidebar_vps-equipment" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/equipment.png);"></div>
+								<div class="listCategoryLink_text">装置</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/building/?btn_id=vps-rust-multi-server--sidebar_vps-building" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/building.png);"></div>
+								<div class="listCategoryLink_text">建築</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/mob/?btn_id=vps-rust-multi-server--sidebar_vps-mob" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/mob.png);"></div>
+								<div class="listCategoryLink_text">モブ</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/survival/?btn_id=vps-rust-multi-server--sidebar_vps-survival" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/survival.png);"></div>
+								<div class="listCategoryLink_text">サバイバル</div>
+							</a>
+						</li>
+											<li class="listCategory_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/category/extension/?btn_id=vps-rust-multi-server--sidebar_vps-extension" class="listCategoryLink">
+								<div class="listCategoryLink_image" style="background-image: url(/vps/media/mine-semi/common/images/category/extension.png);"></div>
+								<div class="listCategoryLink_text">機能拡張</div>
+							</a>
+						</li>
+										</ul>
+				</div>
+			</div>
+			<div class="main_sidebar">
+				<div class="footerNavigationBox">
+					<h3 class="headingP4">検索</h3>
+					<form action="https://www.conoha.jp/vps/media/mine-semi/search/" method="post" class="boxSearch">
+						<div class="boxSearch_input">
+							<input type="text" placeholder="記事を検索" name="search">
+						</div>
+						<div class="boxSearch_submit">
+							<button type="submit" class="flash">検索</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="footerNavigationBox">
+					<h3 class="headingP4">新着記事</h3>
+					<ul class="listPosts">
+											<li class="listPosts_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/satisfactory-multi-server/?btn_id=vps-rust-multi-server--footer_vps-satisfactory-multi-server" class="boxPost is-small has-badge">
+								<div class="boxPostHead">
+									<div class="boxPostHead_inner">
+										<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/satisfactory-multi-server/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/satisfactory-multi-server/images/eyecatch.jpg" alt=""></picture>									</div>
+								</div>
+								<div class="boxPostBody">
+									<h3 class="boxPostBody_title"><span>【Satisfactory】ってどんなゲーム？魅力とマルチプレイで遊ぶ方法を徹底解説！</span></h3>
+								</div>
+							</a>
+						</li>
+												<li class="listPosts_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/rust-mod/?btn_id=vps-rust-multi-server--footer_vps-rust-mod" class="boxPost is-small has-badge">
+								<div class="boxPostHead">
+									<div class="boxPostHead_inner">
+										<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-mod/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/rust-mod/images/eyecatch.jpg" alt=""></picture>									</div>
+								</div>
+								<div class="boxPostBody">
+									<h3 class="boxPostBody_title"><span>【Rust】MOD導入方法とおすすめのプラグインまとめ</span></h3>
+								</div>
+							</a>
+						</li>
+												<li class="listPosts_item">
+							<a href="https://www.conoha.jp/vps/media/mine-semi/command/?btn_id=vps-rust-multi-server--footer_vps-command" class="boxPost is-small has-badge">
+								<div class="boxPostHead">
+									<div class="boxPostHead_inner">
+										<picture><source srcset="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/command/images/eyecatch.webp" type="image/webp"><img class="lazyload" data-src="https://cache.img.gmo.jp/conoha/service/vps/media/mine-semi/command/images/eyecatch.jpg" alt=""></picture>									</div>
+								</div>
+								<div class="boxPostBody">
+									<h3 class="boxPostBody_title"><span>【マイクラ】コマンドの使い方を徹底解説！</span></h3>
+								</div>
+							</a>
+						</li>
+											</ul>
+				</div>
+
+				<div class="footerNavigationBox">
+					<h3 class="headingP4">SNS</h3>
+					<div class="footerNavigationSns">
+						<ul class="footerNavigationSns_list">
+							<li class="footerNavigationSns_item">
+								<a href="https://twitter.com/ConoHaPR/" class="buttonIcon is-twitter" target="_blank" rel="noreferrer noopener">
+									<span class="icon icon-twitter"></span>
+								</a>
+							</li>
+							<li class="footerNavigationSns_item">
+								<a href="https://www.facebook.com/conoha.pr/" class="buttonIcon is-facebook" target="_blank" rel="noreferrer noopener">
+									<span class="icon icon-facebook"></span>
+								</a>
+							</li>
+							<li class="footerNavigationSns_item">
+								<a href="https://www.youtube.com/playlist?list=PL03RI_Dc8Jo-E8Fc4vlG7nIv5NdxoarE2" class="buttonIcon is-youtube" target="_blank" rel="noreferrer noopener">
+									<span class="icon icon-youtube"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footerPresenter">
+		<div class="inner">
+			<div class="footerPresenterLogo">
+				<p class="footerPresenterLogo_label">運営</p>
+				<a href="https://www.conoha.jp/?btn_id=vps-rust-multi-server--footer_top" class="boxImage is-center is-heightFix is-white flash">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 267.6 80" width="267.6" height="80"><style>.a{fill:#12b8d7}.b{fill:#005bac}.is-white .a,.is-white .b{fill:#fff}</style><path class="a" d="m70,63.2c-7.4,9.6-18.6,15.2-30.8,15.2C17.6,78.4,0,60.8,0,39.2S17.6,0,39.2,0c12,0,23.4,5.6,30.8,15.4-4.4,2.6-8,6.2-10.4,10.6l-.2-.4c-4.6-6.8-12.2-10.8-20.2-10.8-13.4,0-24.4,11-24.4,24.4s11,24.4,24.4,24.4c8,0,15.6-4,20.2-10.8l.2-.4c2.6,4.4,6.2,8.2,10.4,10.8Zm197.6-44.4v40.6h-11.8v-1.8c-2.8,1.2-5.6,1.8-8.6,1.8-7.4,0-14.2-4.2-17.6-10.4v29.2h-14.6v-31.8h-23.8v32.2h-15v-29.2c-3.4,6-10,10.2-17.6,10.2s-14.2-4.2-17.6-10.4v10.6h-11.8v-20.6c0-4.6-3.8-8.4-8.4-8.4s-8.4,3.8-8.4,8.4v20.4h-11.8v-10.6c-3.4,6.2-10,10.4-17.6,10.4-11,0-20.2-9-20.2-20.2s9-20.2,20.2-20.2c8.6,0,16,5.4,19,13,3-7.6,10.4-13,19-13s16,5.6,19,13.2c3-7.8,10.4-13.2,19-13.2,7.4,0,14,4,17.6,10.2V0h14.6v31.8h23.8V0h14.6v29.2c3.4-6.2,10-10.4,17.6-10.4,3,0,6,.6,8.6,1.8v-1.8h11.8Zm-176.2,20.4c0-4.6-3.8-8.4-8.4-8.4s-8.4,3.8-8.4,8.4,3.8,8.4,8.4,8.4,8.6-3.8,8.4-8.4Zm76,0c0-4.6-3.8-8.4-8.4-8.4s-8.4,3.8-8.4,8.4,3.8,8.4,8.4,8.4,8.4-3.8,8.4-8.4Zm88.4,0c0-4.6-3.8-8.4-8.4-8.4s-8.4,3.8-8.4,8.4,3.8,8.4,8.4,8.4,8.4-3.8,8.4-8.4Z"></path><path class="b" d="m90.8,71.8c-.6,0-1.2.2-1.8.6v-3h-1.4v8.6h1.4v-.6c.2.4.8.8,1.6.8,1.4,0,2.8-1.2,2.8-3.2s-1.2-3.2-2.6-3.2Zm-.2,5c-.2,0-1,0-1.4-1.2v-.8c0-1.2.8-1.8,1.4-1.8.8,0,1.6.6,1.4,1.8,0,.8-.4,2-1.4,2Zm7.2-4.8l-1.2,4.4-1.4-4.4h-1.6l2.2,6.2c0,.2-.2.4-.4.4-.2.2-.6.2-.6.2h-.4v1.2h.8c1.2,0,1.6-.4,2-1.6l.4-1.2,1.6-5.2h-1.4Zm35.6,5.4h1l3.6-5.8,2,6.8h4l-4-12.6h-1.6l-4.8,7.4-4.8-7.4h-1.6l-4,12.6h4l2-6.8,3.6,5.8s.6,0,.6,0Zm-10.2-6.2h-10.8c-.6,0-1,.4-1,1s.4,1,1,1h6.4c-.8,2-3.4,3.4-6.4,3.4-3.6,0-6.6-2.2-6.6-4.8s3-4.6,6.6-4.6c2,0,3.8.6,5,1.6h4.4c-1.8-2-5.4-3.4-9.4-3.4-6,0-10.8,3-10.8,6.6s4.8,6.6,10.8,6.6,10.8-3,10.8-6.6c0,0,0-.8,0-.8Zm31.2-5.8c-6,0-10.8,3-10.8,6.6s4.8,6.6,10.8,6.6,10.8-3,10.8-6.6c.2-3.6-4.8-6.6-10.8-6.6Zm0,11.2c-3.6,0-6.6-2.2-6.6-4.6,0-2.6,3-4.6,6.6-4.6s6.6,2.2,6.6,4.6c0,2.6-2.8,4.6-6.6,4.6Z"></path></svg>				</a>
+			</div>
+
+			<div class="footerPresenterCopy">Copyright © 2024 GMO Internet Group, Inc. All Rights Reserved.</div>
+		</div>
+	</div>
+</footer>
+	</div><script defer="" src="./93_files/jquery-3.6.0.min.js.ダウンロード"></script>
+<script defer="" src="./93_files/lazyload.min.js.ダウンロード"></script>
+<script defer="" src="./93_files/script.js.ダウンロード"></script>
+
+<script type="text/javascript" charset="UTF-8" src="./93_files/script.min.js.ダウンロード" id="gmoheadertag" async="async"></script>
+
+<div class="gmoGroupHeader gmoGroupHeader-sustainable"><span class="gmoGroupHeader_SPB"></span><div class="gmoGroupHeader_logo"><div class="gmoGroupHeader_gmologo"><a target="_blank" rel="nofollow noopener noreferrer" href="https://www.gmo.jp/" data-gmo-category="gh_header" data-gmo-name="おかげさまで28周年 すべての人にインターネット GMOインターネットグループ"><img src="./93_files/logo-gmo28th.svg" alt="おかげさまで28周年 すべての人にインターネット GMOインターネットグループ"></a></div><div class="gmoGroupHeader_sustainable"><a target="_blank" rel="nofollow noopener noreferrer" href="https://www.gmo.jp/csr/" data-gmo-category="gh_header" data-gmo-name="私たちはSDGs達成と持続可能な社会の実現に向けた取り組みを進めています"><img src="./93_files/logo-sdgs.svg" alt="私たちはSDGs達成と持続可能な社会の実現に向けた取り組みを進めています"></a></div></div><div class="gmoGroupHeader_menuBtn"><svg viewBox="0 0 80 80"><circle cx="20" cy="20" r="6"></circle><circle cx="40" cy="20" r="6"></circle><circle cx="60" cy="20" r="6"></circle><circle cx="20" cy="40" r="6"></circle><circle cx="40" cy="40" r="6"></circle><circle cx="60" cy="40" r="6"></circle><circle cx="20" cy="60" r="6"></circle><circle cx="40" cy="60" r="6"></circle><circle cx="60" cy="60" r="6"></circle></svg></div><div class="gmoGroupHeader_pickup"><div><a target="_blank" rel="nofollow noopener noreferrer" href="https://gmo-aozora.com/" data-gmo-category="gh_header" data-gmo-name="GMOあおぞらネット銀行" data-group="common_gmo_cm_aozora"><span class="gmoGroupHeader_pickup_ico-blue">法人口座即日</span>GMOあおぞらネット銀行</a></div><div><a target="_blank" rel="nofollow noopener noreferrer" href="https://www.click-sec.com/corp/lp/cfd/general/" data-gmo-category="gh_header" data-gmo-name="GMOクリック証券" data-group="common_gmo_cm_click"><span class="gmoGroupHeader_pickup_ico-blue">CFD国内1位</span>GMOクリック証券</a></div><div><a target="_blank" rel="nofollow noopener noreferrer" href="https://www.gmosign.com/" data-gmo-category="gh_header" data-gmo-name="電子印鑑GMOサイン" data-group="common_gmo_cm_agree"><span class="gmoGroupHeader_pickup_ico-blue">国内1位</span>電子印鑑GMOサイン</a></div><div><a target="_blank" rel="nofollow noopener noreferrer" href="https://product.gmo-cybersecurity.com/net-de-shindan/lp_enterprise/?utm_source=gmo_groupheader&amp;utm_medium=textlink&amp;utm_campaign=gmo_groupheader" data-gmo-category="gh_header" data-gmo-name="ネットde診断" data-group="common_gmo_cm_cybersecurity"><span class="gmoGroupHeader_pickup_ico-blue">サイバー攻撃</span>ネットde診断</a></div></div></div><script id="" text="" charset="" type="text/javascript" src="./93_files/a8sales.js.ダウンロード"></script><script id="" text="" charset="" type="text/javascript" src="./93_files/lpjs.js.ダウンロード"></script><script type="text/javascript" id="" charset="">(function(b){var a=document.createElement("script");a.type="text/javascript";a.src="https://www.rentracks.jp/js/itp/rt.track.js?t\x3d"+(new Date).getTime();a.readyState?a.onreadystatechange=function(){if("loaded"===a.readyState||"complete"===a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()};document.getElementsByTagName("head")[0].appendChild(a)})(function(){});</script><script id="" text="" charset="utf-8" type="text/javascript" src="./93_files/saved_resource"></script><script id="" text="" charset="" type="text/javascript" src="./93_files/maftag.js.ダウンロード"></script><script id="" text="" charset="" type="text/javascript" src="./93_files/csslp.js.ダウンロード"></script><script type="text/javascript" id="" charset="">(function(b,a,c){b=a.getElementsByTagName(c)[0];a=a.createElement(c);a.async=!0;a.src="https://dmp.im-apps.net/js/1009918/0001/itm.js";b.parentNode.insertBefore(a,b)})(window,document,"script");</script>
+
+<script type="text/javascript" id="" charset="">(function(a,b,d){a._ltq=a._ltq||[];a._lt=a._lt||function(){a._ltq.push(arguments)};var e="https:"===location.protocol?"https://d.line-scdn.net":"http://d.line-cdn.net",c=b.createElement("script");c.async=1;c.src=d||e+"/n/line_tag/public/release/v1/lt.js";b=b.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)})(window,document);_lt("init",{customerType:"lap",tagId:"d35602ee-4929-4d2d-a043-11b906e50bbf"});_lt("send","pv",["d35602ee-4929-4d2d-a043-11b906e50bbf"]);</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://tr.line.me/tag.gif?c_t=lap&amp;t_id=d35602ee-4929-4d2d-a043-11b906e50bbf&amp;e=pv&amp;noscript=1">
+</noscript>
+
+
+<script type="text/javascript" id="" charset="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","957081595520705");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=957081595520705&amp;ev=PageView&amp;noscript=1"></noscript>
+  <script id="" text="" charset="" type="text/javascript" src="./93_files/up_loader.1.1.0.js.ダウンロード"></script><div style="display: none; visibility: hidden;"><script>!function(d,g,e){d.TiktokAnalyticsObject=e;var a=d[e]=d[e]||[];a.methods="page track identify instances debug on off once ready alias group enableCookie disableCookie".split(" ");a.setAndDefer=function(b,c){b[c]=function(){b.push([c].concat(Array.prototype.slice.call(arguments,0)))}};for(d=0;d<a.methods.length;d++)a.setAndDefer(a,a.methods[d]);a.instance=function(b){b=a._i[b]||[];for(var c=0;c<a.methods.length;c++)a.setAndDefer(b,a.methods[c]);return b};a.load=function(b,c){var f="https://analytics.tiktok.com/i18n/pixel/events.js";
+a._i=a._i||{};a._i[b]=[];a._i[b]._u=f;a._t=a._t||{};a._t[b]=+new Date;a._o=a._o||{};a._o[b]=c||{};c=document.createElement("script");c.type="text/javascript";c.async=!0;c.src=f+"?sdkid\x3d"+b+"\x26lib\x3d"+e;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)};a.load("CJSM9TJC77UDO397G7P0");a.page()}(window,document,"ttq");</script></div>
+<script type="text/javascript" id="" charset="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","957081595520705");fbq("trackSingle","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=957081595520705&amp;ev=PageView&amp;noscript=1"></noscript><iframe allow="join-ad-interest-group" data-tagging-id="G-261Y08RR47" data-load-time="1729507548781" height="0" width="0" src="./93_files/rul.html" style="display: none; visibility: hidden;"></iframe><iframe allow="join-ad-interest-group" data-tagging-id="AW-988148619/-vb9CI2BywUQi-eX1wM" data-load-time="1729507548834" height="0" width="0" src="./93_files/988148619.html" style="display: none; visibility: hidden;"></iframe>
+
+        <script type="text/javascript" id="" charset="">ttd_dom_ready(function(){if("function"===typeof TTDUniversalPixelApi){var a=new TTDUniversalPixelApi;a.init("g99ljw7",["dbrxq02"],"https://insight.adsrvr.org/track/up")}});</script><div id="batBeacon341361677767" style="width: 0px; height: 0px; display: none; visibility: hidden;"><img id="batBeacon421363359075" width="0" height="0" alt="" src="./93_files/0" style="width: 0px; height: 0px; display: none; visibility: hidden;"><img id="batBeacon790535203087" width="0" height="0" alt="" src="./93_files/0(1)" style="width: 0px; height: 0px; display: none; visibility: hidden;"></div><script type="text/javascript" id="" charset="">(function(){if(100!=google_tag_manager["rm"]["53542856"](125)){var c=Math.floor(Date.now()/1E3),b="_im_score_20409",d=sessionStorage.getItem(b+"_exp");if(!(d&&d>c)){var a=new XMLHttpRequest;a.onloadend=function(){var e=180;if(200==a.status)try{var f=JSON.parse(a.response);f.escvid&&(sessionStorage.setItem(b,f.score),e=21600)}catch(g){}sessionStorage.setItem(b+"_exp",c+e)};a.open("GET","https://sync6.im-apps.net/v1/fraud?escvid\x3d20409");a.withCredentials=!0;a.timeout=3E3;a.send()}}})();</script><script type="text/javascript" id="" charset="">(function(a){var b=a.createElement("iframe"),c="https:"==a.location.protocol?"https://":"http://";b.src=c+"cf.im-apps.net/imid/beacon.html";b.style.display="none";a.body.appendChild(b)})(document);</script><iframe src="./93_files/beacon.html" style="display: none;"></iframe><script type="text/javascript" id="" charset="">!function(a,d,c,g){if(!d[a]){d[a]=function(){d[a].instances.push(this);this.init&&this.init()};d[a].instances=[];for(var b=0,e=["pageview"],h=e.length;b<h;b++)d[a].prototype[e[b]]=function(f){return function(){this["tmp_"+f]=this["tmp_"+f]||[];this["tmp_"+f].push(Array.prototype.slice.call(arguments))}}(e[b]);b=c.getElementsByTagName("script")[0];c=c.createElement("script");c.async=!0;c.src=g;b.parentNode.insertBefore(c,b)}}("IMLOG",window,document,"//dmp.im-apps.net/sdk/log.js");
+(function(){var a=new IMLOG;a.siteId=google_tag_manager["rm"]["53542856"](126);a.escvid=google_tag_manager["rm"]["53542856"](127);a.score=google_tag_manager["rm"]["53542856"](128);a.cvid=google_tag_manager["rm"]["53542856"](132);a.segment_eids=google_tag_manager["rm"]["53542856"](133);a.user_id=google_tag_manager["rm"]["53542856"](134);a.pageview({custom_data:google_tag_manager["rm"]["53542856"](135)})})();</script><iframe height="0" width="0" src="./93_files/activityi.html" style="display: none; visibility: hidden;"></iframe><iframe allow="join-ad-interest-group" data-tagging-id="DC-8941176/invmedia/z3xkn0+standard" data-load-time="1729507550724" height="0" width="0" src="./93_files/activityi(1).html" style="display: none; visibility: hidden;"></iframe><script type="text/javascript" id="" charset="">!function(a,d,c,g){if(!d[a]){d[a]=function(){d[a].instances.push(this);this.init&&this.init()};d[a].instances=[];for(var b=0,e=["pageview"],h=e.length;b<h;b++)d[a].prototype[e[b]]=function(f){return function(){this["tmp_"+f]=this["tmp_"+f]||[];this["tmp_"+f].push(Array.prototype.slice.call(arguments))}}(e[b]);b=c.getElementsByTagName("script")[0];c=c.createElement("script");c.async=!0;c.src=g;b.parentNode.insertBefore(c,b)}}("IMLOG",window,document,"//dmp.im-apps.net/sdk/log.js");
+(function(){var a=new IMLOG;a.siteId=google_tag_manager["rm"]["53542856"](136);a.trackerUrl="https://b6.im-apps.net/collect";a.pageview({cv:google_tag_manager["rm"]["53542856"](140)})})();</script><iframe allow="join-ad-interest-group" data-tagging-id="AW-10868615321" data-load-time="1729507551771" height="0" width="0" src="./93_files/10868615321.html" style="display: none; visibility: hidden;"></iframe><iframe id="universal_pixel_dbrxq02" height="0" width="0" style="display:none;" src="./93_files/up.html" title="TTD Universal Pixel"></iframe><img src="./93_files/adsct" height="1" width="1" style="display: none;"><img src="./93_files/adsct(1)" height="1" width="1" style="display: none;"></body></html>
