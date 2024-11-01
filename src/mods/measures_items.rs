@@ -1,13 +1,14 @@
 use crate::mods::extract;
+use regex::Regex;
 use std::fs::File;
 use std::io::{self, Read};
-use regex::Regex;
 
 const FIRST_QUERY: &str = "北海道";
 const FILE_PATH: &str = "./db/0.html";
 
 pub fn title40() -> bool {
-    let title = extract::extract_title(FILE_PATH);
+    let title = extract::extract_element("title", FILE_PATH);
+    let title = title[0].to_string();
     title.chars().count() <= 40
 }
 

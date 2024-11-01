@@ -1,0 +1,22 @@
+- 0:https://www.rust-lang.org/ja
+- 1:https://ja.wikipedia.org/wiki/Rust_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)
+- 2:https://store.steampowered.com/app/252490/Rust/
+- 3:https://www.playstation.com/ja-jp/games/rust/
+- 4:https://qiita.com/tags/rust
+- 5:https://doc.rust-jp.rs//
+- 6:https://learn.microsoft.com/ja-jp/training/paths/rust-first-steps/
+- 7:https://www.rust-lang.org/ja/learn
+- 8:https://xtech.nikkei.com/atcl/nxt/column/18/02872/062500002/
+- 9:https://findy-code.io/engineer-lab/techtensei-matsu7874
+
+
+- 91:https://bitfieldconsulting.com/posts/rust-vs-go
+- 92:https://thinkit.co.jp/article/22357
+- 93:https://www.conoha.jp/vps/media/mine-semi/rust-multi-server/
+- 94:https://www.rustoleum.com/
+- 95:https://docs.redhat.com/ja/documentation/red_hat_developer_tools/1/html/using_rust_1.58.1_toolset/proc_building-a-rust-project-in-release-mode_assembly_the-cargo-build-tool
+- 96:https://roadmap.sh/rust
+- 97:https://www.imdb.com/title/tt11001074/
+- 98:https://github.blog/developer-skills/programming-languages-and-frameworks/why-rust-is-the-most-admired-language-among-developers/
+- 99:https://www.nhl.com/penguins/player/bryan-rust-8475810
+- 100:https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/

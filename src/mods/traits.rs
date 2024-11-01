@@ -4,6 +4,8 @@ pub trait Formatter {
     fn format_ws(&self) -> String;
 
     fn format_url(&self) -> String;
+
+    fn format_html(&self) -> String;
 }
 const UNICODE_WHITESPACE: &[char] = &[
     '\u{3000}', '\u{3164}', '\u{00A0}', '\u{1680}', '\u{2000}', '\u{2001}', '\u{2002}', '\u{2003}',
@@ -22,6 +24,20 @@ impl Formatter for String {
     fn format_url(&self) -> String {
         url::form_urlencoded::byte_serialize(self.as_bytes()).collect::<String>()
     }
+    fn format_html(&self) -> String {
+        let mut result = String::new();
+        let mut in_tag = false;
+        for c in self.chars() {
+            if c == '<' {
+                in_tag = true;
+            } else if c == '>' {
+                in_tag = false;
+            } else if !in_tag {
+                result.push(c);
+            }
+        }
+        result
+    }
 }
 
 impl Formatter for &str {
@@ -33,5 +49,19 @@ impl Formatter for &str {
     }
     fn format_url(&self) -> String {
         url::form_urlencoded::byte_serialize(self.as_bytes()).collect::<String>()
+    }
+    fn format_html(&self) -> String {
+        let mut result = String::new();
+        let mut in_tag = false;
+        for c in self.chars() {
+            if c == '<' {
+                in_tag = true;
+            } else if c == '>' {
+                in_tag = false;
+            } else if !in_tag {
+                result.push(c);
+            }
+        }
+        result
     }
 }

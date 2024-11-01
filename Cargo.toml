@@ -6,44 +6,38 @@ edition = "2021"
 
 [dependencies]
 #基本
-tokio = { version = "1.40.x", features = ["full"] }
-axum = { version = "0.7.x", features = [] }
-rand = { version = "0.8.x", features = [] }
-chrono = { version = "0.4.x", features = [] }
-serde = { version = "1.0.x", features = ["derive"] }
-serde_json = { version = "1.0.x", features = [] }
-regex = { version = "1.11.x", features = [] }
+tokio = { version = "1.41.0", features = ["full"] }
+rayon = { version = "1.10.0", features = [] }
+rand = { version = "0.8.5", features = [] }
+chrono = { version = "0.4.38", features = [] }
+serde = { version = "1.0.214", features = ["derive"] }
+serde_json = { version = "1.0.132", features = [] }
+regex = { version = "1.11.1", features = [] }
 #TUI
-ratatui = { version = "0.29.x", features = [
+ratatui = { version = "0.29.0", features = [
     "crossterm",
     "serde",
     "macros",
     "palette",
     "all-widgets",
 ] }
-crossterm = { version = "0.28.x", features = [] }
+crossterm = { version = "0.28.1", features = [] }
 #スクレイピング
-reqwest = { version = "0.12.8", features = ["json", "cookies"] }
-select = { version = "0.6.x", features = [] }
-scraper = { version = "0.20.x", features = [] }
-spider = { version = "2.9.x", features = [] }
-url = { version = "2.5.x", features = [] }
+reqwest = { version = "0.12.9", features = ["json", "cookies"] }
+select = { version = "0.6.0", features = [] }
+scraper = { version = "0.21.0", features = [] }
+spider = { version = "2.11.0", features = [] }
+url = { version = "2.5.2", features = [] }
 #機械学習
-nalgebra = { version = "0.33.x", features = [] }
-ndarray = { version = "0.16.x", features = [] }
-ndarray-rand = { version = "0.15.x", features = [] }
-ndarray-linalg = { version = "0.16.x", features = [] }
-linfa = { version = "0.7.x", features = [] }
-linfa-logistic = { version = "0.7.x", features = [] }
-linfa-linear = { version = "0.7.x", features = [] }
-linfa-trees = { version = "0.7.x", features = [] }
+ndarray = { version = "0.16.1", features = [] }
+ndarray-rand = { version = "0.15.0", features = [] }
+ndarray-linalg = { version = "0.16.0", features = [] }
+ndarray-stats = { version = "0.6.0", features = [] }
 #グラフ
-charming = { version = "0.4.x", features = [] }
-plotters = { version = "0.3.x", features = [] }
+charming = { version = "0.4.0", features = [] }
+plotters = { version = "0.3.7", features = [] }
 #形態素解析
-lindera = { version = "0.34.x", features = ["ipadic"] }
-#圧縮
-flate2 = { version = "1.0.x", features = [] }
+lindera = { version = "0.35.0", features = ["unidic"] }
 [profile.dev]
 opt-level = 1
 [profile.dev.package."*"]
